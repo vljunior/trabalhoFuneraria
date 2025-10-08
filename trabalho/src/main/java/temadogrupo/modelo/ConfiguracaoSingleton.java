@@ -14,6 +14,15 @@ public class ConfiguracaoSingleton implements SerializableTXT {
     private static ConfiguracaoSingleton instancia;
 
     private String opcao = "Algo"; //um atributo de configuração pra seguir de exemplo para os demais que surgirem
+    private int maximoLinhasLog = 100;
+
+    public int getMaximoLinhasLog() {
+        return maximoLinhasLog;
+    }
+
+    public void setMaximoLinhasLog(int maximoLinhasLog) {
+        this.maximoLinhasLog = maximoLinhasLog;
+    }
 
     private ConfiguracaoSingleton() {
         carregarConfiguracoes();
@@ -37,7 +46,8 @@ public class ConfiguracaoSingleton implements SerializableTXT {
     // Serialização
     @Override
     public String toSerializableTxt() {
-        return getOpcao() + ";";
+        return getOpcao() + ";" +
+               getMaximoLinhasLog() + ";";
     }
 
     @Override
@@ -45,6 +55,7 @@ public class ConfiguracaoSingleton implements SerializableTXT {
         
         String[] partes = linha.split(";");
         setOpcao(partes[0]);
+        setMaximoLinhasLog(Integer.parseInt(partes[1]));
         //int idade = Integer.parseInt(partes[1]);        
         
     }

@@ -3,6 +3,8 @@ package temadogrupo;
 import temadogrupo.utilitarios.*;
 import temadogrupo.menu.*;
 import temadogrupo.modelo.*;
+import temadogrupo.persistencia.txt.LogRepositorio;
+
 
 /*Estrutura
 
@@ -31,29 +33,38 @@ public class App {
     public static void main(String[] args) {
 
         iniciar();
-        int opcaoPrincipal;
+        try {
+            
+            int opcaoPrincipal;
 
-        do {
-            opcaoPrincipal = MenuPrincipal.exibir();
+            do {
+                opcaoPrincipal = MenuPrincipal.exibir();
 
-            switch (opcaoPrincipal) {
-                case 1 -> {
-                    int opcaoPessoa;
-                    do {
-                        opcaoPessoa = MenuPessoa.exibir();
-                        switch (opcaoPessoa) { //sem break, com uso de ->
-                            case 1 -> { 
+                switch (opcaoPrincipal) {
+                    case 1 -> {
+                        int opcaoPessoa;
+                        do {
+                            opcaoPessoa = MenuPessoa.exibir();
+                            switch (opcaoPessoa) { //sem break, com uso de ->
+                                case 1 -> { 
 
-                            }                            
-                        }
-                    } while (opcaoPessoa != 5);
-                }                      
-            }
-        } while (opcaoPrincipal != 4);
+                                    int a = 9/0;
 
-        Video.mensagemInfo("Saindo do sistema...");
+                                }                            
+                            }
+                        } while (opcaoPessoa != 5);
+                    }                      
+                }
+            } while (opcaoPrincipal != 4);
 
-        // ao finalizar o sistema, salva as configurações 
-        configuracoesSistema.salvarConfiguracoes();
-    }  
+            Video.mensagemInfo("Saindo do sistema...");
+
+            // ao finalizar o sistema, salva as configurações 
+            configuracoesSistema.salvarConfiguracoes();            
+
+        } catch (Exception e) {
+            new LogRepositorio().registrarExcecao(e, configuracoesSistema.getMaximoLinhasLog());
+            System.err.println("Erro não previsto registrado no log: " + e.getMessage());
+        }
+    }
 }
