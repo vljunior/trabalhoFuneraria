@@ -12,5 +12,9 @@ public class MenuPrincipal {
         Menu menu = new Menu("Menu Principal", opcoes);
         return menu.exibir();
     }
+<<<<<<< HEAD
 }
 
+=======
+}
+>>>>>>> dd5e17d9506ec1812f488a788b4ed20b6f7d63b8

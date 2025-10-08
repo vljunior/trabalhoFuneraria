@@ -34,4 +34,7 @@ public class Menu {
         return opcaoEscolhida;
     }
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> dd5e17d9506ec1812f488a788b4ed20b6f7d63b8
