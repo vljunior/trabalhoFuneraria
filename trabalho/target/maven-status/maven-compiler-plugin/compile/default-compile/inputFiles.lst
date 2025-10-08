@@ -10,10 +10,8 @@ C:\2025-2TrabalhoOOFuneraria\trabalho\src\main\java\temadogrupo\modelo\TipoPesso
 C:\2025-2TrabalhoOOFuneraria\trabalho\src\main\java\temadogrupo\modelo\Valor\Endereco.java
 C:\2025-2TrabalhoOOFuneraria\trabalho\src\main\java\temadogrupo\persistencia\nitrite\persistencia\PessoaRepositorio.java
 C:\2025-2TrabalhoOOFuneraria\trabalho\src\main\java\temadogrupo\persistencia\nitrite\servico\PessoaServico.java
-C:\2025-2TrabalhoOOFuneraria\trabalho\src\main\java\temadogrupo\persistencia\txt\ArquivoTextoRepositorio.java
-C:\2025-2TrabalhoOOFuneraria\trabalho\src\main\java\temadogrupo\persistencia\txt\Repositorio.java
+C:\2025-2TrabalhoOOFuneraria\trabalho\src\main\java\temadogrupo\persistencia\txt\ArquivoTxtConfiguracoes.java
 C:\2025-2TrabalhoOOFuneraria\trabalho\src\main\java\temadogrupo\persistencia\txt\SerializableTXT.java
-C:\2025-2TrabalhoOOFuneraria\trabalho\src\main\java\temadogrupo\persistencia\txt\Servico.java
 C:\2025-2TrabalhoOOFuneraria\trabalho\src\main\java\temadogrupo\utilitarios\GeradorIdentificadorUnico.java
 C:\2025-2TrabalhoOOFuneraria\trabalho\src\main\java\temadogrupo\utilitarios\Teclado.java
 C:\2025-2TrabalhoOOFuneraria\trabalho\src\main\java\temadogrupo\utilitarios\Video.java

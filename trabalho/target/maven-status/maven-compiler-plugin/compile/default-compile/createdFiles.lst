@@ -3,9 +3,7 @@ temadogrupo\modelo\Valor\Endereco.class
 temadogrupo\utilitarios\GeradorIdentificadorUnico.class
 temadogrupo\modelo\Cliente.class
 temadogrupo\modelo\TipoPessoa.class
-temadogrupo\persistencia\txt\Servico.class
 temadogrupo\modelo\Pessoa.class
-temadogrupo\persistencia\txt\Repositorio.class
 temadogrupo\modelo\Falecido.class
 temadogrupo\persistencia\txt\SerializableTXT.class
 temadogrupo\menu\Menu.class
@@ -14,6 +12,6 @@ temadogrupo\menu\MenuPrincipal.class
 temadogrupo\utilitarios\Video.class
 temadogrupo\persistencia\nitrite\persistencia\PessoaRepositorio.class
 temadogrupo\persistencia\nitrite\servico\PessoaServico.class
-temadogrupo\persistencia\txt\ArquivoTextoRepositorio.class
+temadogrupo\persistencia\txt\ArquivoTxtConfiguracoes.class
 temadogrupo\utilitarios\Teclado.class
 temadogrupo\modelo\ConfiguracaoSingleton.class

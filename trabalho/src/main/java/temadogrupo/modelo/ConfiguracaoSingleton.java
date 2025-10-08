@@ -1,11 +1,10 @@
 package temadogrupo.modelo;
 
-import java.util.List;
+import temadogrupo.persistencia.txt.*;
+import temadogrupo.utilitarios.Video;
 
-import temadogrupo.persistencia.txt.ArquivoTextoRepositorio;
-import temadogrupo.persistencia.txt.Repositorio;
-import temadogrupo.persistencia.txt.SerializableTXT;
-import temadogrupo.persistencia.txt.Servico;
+import java.io.IOException;
+
 
 
 //Esta classe é Singleton e Serializable, mas com uso de SerializableTXT e generics do exemplo Lorenzon Presistencia OO no MVN
@@ -14,7 +13,7 @@ public class ConfiguracaoSingleton implements SerializableTXT {
 
     private static ConfiguracaoSingleton instancia;
 
-    private String opcao; //um atributo de configuração pra seguir de exemplo para os demais que surgirem
+    private String opcao = "Algo"; //um atributo de configuração pra seguir de exemplo para os demais que surgirem
 
     private ConfiguracaoSingleton() {
         carregarConfiguracoes();
@@ -38,40 +37,33 @@ public class ConfiguracaoSingleton implements SerializableTXT {
     // Serialização
     @Override
     public String toSerializableTxt() {
-        return opcao;
+        return getOpcao() + ";";
     }
 
     @Override
-    public ConfiguracaoSingleton fromSerializableTxt(String linha) {
+    public void fromSerializableTxt(String linha) {      
         
-        ConfiguracaoSingleton c = getInstancia(); //Sempre atendendo o singleton
-        c.opcao = linha;
-        return c;
+        String[] partes = linha.split(";");
+        setOpcao(partes[0]);
+        //int idade = Integer.parseInt(partes[1]);        
+        
     }
 
     private void carregarConfiguracoes() {
-        try {
-            Repositorio<ConfiguracaoSingleton> repositorio =
-                new ArquivoTextoRepositorio<ConfiguracaoSingleton>("config.txt", this);
-            Servico<ConfiguracaoSingleton> servico = new Servico<ConfiguracaoSingleton>(repositorio);
-            List<ConfiguracaoSingleton> lista = servico.carregar();
-            if (!lista.isEmpty()) {
-                this.opcao = lista.get(0).getOpcao();
-            } else {
-                this.opcao = "default"; // valor inicial
-            }
-        } catch (Exception e) {
-            this.opcao = "default";
+        
+        try {            
+            
+            new ArquivoTxtConfiguracoes("config.txt").carregar(this);    
+            
+        } catch (IOException e) {
+            setOpcao("padrao");
         }
     }
 
     public void salvarConfiguracoes() {
         try {
-            Repositorio<ConfiguracaoSingleton> repositorio =
-                new ArquivoTextoRepositorio<ConfiguracaoSingleton>("config.txt", this);
-            Servico<ConfiguracaoSingleton> servico = new Servico<ConfiguracaoSingleton>(repositorio);
-            servico.salvar(List.of(this));
-        } catch (Exception e) {
+            new ArquivoTxtConfiguracoes("config.txt").salvar(this);                
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }

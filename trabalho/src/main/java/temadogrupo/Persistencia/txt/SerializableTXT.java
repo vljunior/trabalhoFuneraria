@@ -4,5 +4,5 @@ package temadogrupo.persistencia.txt;
 
 public interface SerializableTXT {
     String toSerializableTxt();
-    SerializableTXT fromSerializableTxt(String linha);
+    void fromSerializableTxt(String linha);
 }
