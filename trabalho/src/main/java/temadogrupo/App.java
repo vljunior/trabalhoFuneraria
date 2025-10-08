@@ -60,11 +60,13 @@ public class App {
                                                 //Implementando pra abstração            
                                                 Pessoa cliente = new Cliente();
                                                 //incrementar os atributos de Cliente
+                                                //cliente.TipoPessoa = TipoPessoa.CLIENTE;
                                             }           
                                             
                                             case 2 -> {                                                    
                                                 Pessoa falecido = new Falecido();
                                                 //incrementar os atributos de Finado
+                                                //falecido.TipoPessoa = TipoPessoa.FALECIDO;
 
                                             }
                                         }

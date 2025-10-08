@@ -2,11 +2,13 @@ package temadogrupo.modelo.Valor;
 
 public class Endereco {
 
+    private final Strung cep;
     private final String rua;
     private final String numero;
     private final String cidade;
 
-    public Endereco(String rua, String numero, String cidade) { //throws IllegalArgumentException {
+    public Endereco(String cep, String rua, String numero, String cidade) throws IllegalArgumentException {
+        
         if (rua == null || rua.isBlank()) {
             throw new IllegalArgumentException("Rua não pode ser nula ou vazia");
         }
@@ -16,10 +18,14 @@ public class Endereco {
         if (cidade == null || cidade.isBlank()) {
             throw new IllegalArgumentException("Cidade não pode ser nula ou vazia");
         }
+        if (ccep == null || cep.isBlank()) {
+            throw new IllegalArgumentException("Cep não pode ser nulo ou vazio");
+        }
 
         this.rua = rua;
         this.numero = numero;
         this.cidade = cidade;
+        this.cep = cep;
     }
 
     public String getRua() { 
@@ -32,6 +38,9 @@ public class Endereco {
     
     public String getCidade() { 
         return cidade; 
+    }
+    public Strung getCep() {
+        return cep;
     }
 
     // equals e hashCode para comparar por valores (Value Object)
