@@ -8,9 +8,10 @@ C:\2025-2TrabalhoOOFuneraria\trabalho\src\main\java\temadogrupo\modelo\Falecido.
 C:\2025-2TrabalhoOOFuneraria\trabalho\src\main\java\temadogrupo\modelo\Pessoa.java
 C:\2025-2TrabalhoOOFuneraria\trabalho\src\main\java\temadogrupo\modelo\TipoPessoa.java
 C:\2025-2TrabalhoOOFuneraria\trabalho\src\main\java\temadogrupo\modelo\Valor\Endereco.java
-C:\2025-2TrabalhoOOFuneraria\trabalho\src\main\java\temadogrupo\persistencia\nitrite\persistencia\PessoaRepositorio.java
+C:\2025-2TrabalhoOOFuneraria\trabalho\src\main\java\temadogrupo\persistencia\nitrite\repositorio\PessoaRepositorioNitrite.java
 C:\2025-2TrabalhoOOFuneraria\trabalho\src\main\java\temadogrupo\persistencia\nitrite\servico\PessoaServico.java
 C:\2025-2TrabalhoOOFuneraria\trabalho\src\main\java\temadogrupo\persistencia\txt\ArquivoTxtConfiguracoes.java
+C:\2025-2TrabalhoOOFuneraria\trabalho\src\main\java\temadogrupo\persistencia\txt\LogRepositorio.java
 C:\2025-2TrabalhoOOFuneraria\trabalho\src\main\java\temadogrupo\persistencia\txt\SerializableTXT.java
 C:\2025-2TrabalhoOOFuneraria\trabalho\src\main\java\temadogrupo\utilitarios\GeradorIdentificadorUnico.java
 C:\2025-2TrabalhoOOFuneraria\trabalho\src\main\java\temadogrupo\utilitarios\Teclado.java

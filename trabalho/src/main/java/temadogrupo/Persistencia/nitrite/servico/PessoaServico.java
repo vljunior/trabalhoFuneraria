@@ -22,11 +22,13 @@ public class PessoaServico {
     }
 
     public List<Cliente> listarClientes() { 
-        return repositorio.listarTodos(); 
+        // repositorio.listarTodos(); 
+        return null;
     }
 
     public List<Falecido> listarFalecidos() { 
-        return repositorio.listarTodos(); 
+        //return repositorio.listarTodos(); 
+        return null;
     }
 
 /*     
@@ -37,7 +39,7 @@ public class PessoaServico {
     */
     
     public void remover(NitriteId id) { 
-        repositorio.deletarPorId(id); 
+        //repositorio.deletarPorId(id); 
     }
 
     /*

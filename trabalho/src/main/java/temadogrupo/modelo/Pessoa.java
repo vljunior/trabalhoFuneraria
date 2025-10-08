@@ -1,11 +1,19 @@
 package temadogrupo.modelo;
 
+import java.util.UUID;
 
+import org.dizitart.no2.NitriteId;
+import org.dizitart.no2.objects.Id;
 
-public abstract class Pessoa {
+public class Pessoa {
 
-    private int         id; //cpf?
+    @Id
+    private NitriteId   id;    
     private String      nome;
     private TipoPessoa  tipo;
+
+    public Pessoa() {
+       
+    }
 
 }

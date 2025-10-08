@@ -1,3 +1,8 @@
+2025-10-08 20:49:57 - org.dizitart.no2.exceptions.NitriteIOException: NO2.2001: database is already opened in other process
+Classe: org.dizitart.no2.NitriteBuilder, Método: openOrCreateInternal, Arquivo: NitriteBuilder.java, Linha: 466
+Classe: org.dizitart.no2.NitriteBuilder, Método: openOrCreate, Arquivo: NitriteBuilder.java, Linha: 415
+Classe: temadogrupo.persistencia.nitrite.repositorio.PessoaRepositorioNitrite, Método: <init>, Arquivo: PessoaRepositorioNitrite.java, Linha: 17
+Classe: temadogrupo.App, Método: main, Arquivo: App.java, Linha: 89
 2025-10-08 18:09:13 - java.lang.ArithmeticException: / by zero
 Classe: temadogrupo.App, M�todo: main, Arquivo: App.java, Linha: 51
 2025-10-08 18:06:12 - java.lang.ArithmeticException: / by zero
