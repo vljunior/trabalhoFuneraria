@@ -1,5 +1,5 @@
 package temadogrupo.modelo;
 
-public class Falecido {
+public class Falecido extends Pessoa{
 
 }

@@ -2,13 +2,16 @@ package temadogrupo;
 
 import temadogrupo.utilitarios.*;
 import temadogrupo.menu.*;
+import temadogrupo.modelo.*;
 
 public class App {
 
-    public static void iniciar(){
-        
+    private ConfiguracaoSingleton configuracoesSistema;
+
+    public static void iniciar(){        
         Video.mensagem("Carregando...");
-        Video.barraProgresso(50, 20);       
+        Video.barraProgresso(50, 20); 
+        configuracoesSistema = ConfiguracaoSingleton.getInstanciaSingleton();      
     }
 
     public static void main(String[] args) {
