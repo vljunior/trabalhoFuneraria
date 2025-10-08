@@ -61,9 +61,12 @@ public class App {
                         
 
         } catch (Exception e) {
-            new LogRepositorio().registrarExcecao(e, configuracoesSistema.getMaximoLinhasLog());
-            Video.mensagemErro("Erro não previsto registrado no log: " + e.getMessage());
-        }
+            
+            Video.mensagemErro("Erro não previsto registrado no log: " + e.getMessage());            
+            LogRepositorio log = new LogRepositorio();
+            log.registrarExcecao(e, configuracoesSistema.getMaximoLinhasLog());
+            
+        }              
         
         finally {
             // ao finalizar o sistema, salva as configurações 

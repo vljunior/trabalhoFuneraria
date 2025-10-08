@@ -23,6 +23,15 @@ public class LogRepositorio {
             
             linhas.add(agora.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")) + " - " + e.toString());
 
+            StackTraceElement[] elementos = e.getStackTrace();
+            
+            for (StackTraceElement item : elementos) {
+                 linhas.add("Classe: " + item.getClassName() +
+                            ", Método: " + item.getMethodName() +
+                            ", Arquivo: " + item.getFileName() +
+                            ", Linha: " + item.getLineNumber());  
+            }                        
+
             File f = new File(arquivo);
             
             if (f.exists() && f.length() > 0) {
@@ -43,8 +52,8 @@ public class LogRepositorio {
                 }
             }
 
-        } catch (Exception ex) {
-            ex.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
     }
 }

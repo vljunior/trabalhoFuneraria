@@ -1,3 +1,7 @@
+2025-10-08 18:09:13 - java.lang.ArithmeticException: / by zero
+Classe: temadogrupo.App, Método: main, Arquivo: App.java, Linha: 51
+2025-10-08 18:06:12 - java.lang.ArithmeticException: / by zero
+Classe: temadogrupo.App, Método: main, Arquivo: App.java, Linha: 51
 2025-10-08 17:44:50 - java.lang.ArithmeticException: / by zero
 2025-10-08 17:43:08 - java.lang.ArithmeticException: / by zero
 2025-10-08 17:42:15 - java.lang.ArithmeticException: / by zero
