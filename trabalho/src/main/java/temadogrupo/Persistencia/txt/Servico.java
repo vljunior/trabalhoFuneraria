@@ -1,6 +1,8 @@
-package temadogrupo.Persistencia.txt;
+package temadogrupo.persistencia.txt;
 
 import java.util.List;
+
+//Usado conforme exemplo Lorenzon de Generics e persistência Serializable
 
 public class Servico<T extends SerializableTXT> {
     private Repositorio<T> repositorio; // Injeção, associação

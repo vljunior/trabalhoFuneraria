@@ -1,11 +1,25 @@
 package temadogrupo;
 
 import temadogrupo.utilitarios.*;
-import temadogrupo.Persistencia.txt.ArquivoTextoRepositorio;
-import temadogrupo.Persistencia.txt.Repositorio;
-import temadogrupo.Persistencia.txt.Servico;
 import temadogrupo.menu.*;
 import temadogrupo.modelo.*;
+import temadogrupo.persistencia.txt.ArquivoTextoRepositorio;
+import temadogrupo.persistencia.txt.Repositorio;
+import temadogrupo.persistencia.txt.Servico;
+
+/*Estrutura
+
+temadogrupo/
+ ├─ modelo/                                 Entidades do domínio (Pessoa, Cliente, Falecido, TipoPessoa) 
+ ├─ persistencia/
+ ├──────────────/txt/                       Em geral generics pra persistência em TXT
+ ├──────────────/nitrite/
+ ├────────────────────── /persistencia/     Interfaces e classes de repositório (Repositorio<T>, PessoaRepositorioNitrite)
+ ├────────────────────── /servico/          Regras de negócio (PessoaService)
+ ├─ menu/          Menus e UI de console
+ └─ App.java       Ponto de entrada
+
+*/
 
 public class App {
 

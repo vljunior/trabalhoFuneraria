@@ -1,10 +1,13 @@
 package temadogrupo.modelo;
 
-import temadogrupo.Persistencia.txt.ArquivoTextoRepositorio;
-import temadogrupo.Persistencia.txt.Repositorio;
-import temadogrupo.Persistencia.txt.SerializableTXT;
-import temadogrupo.Persistencia.txt.Servico;
 import java.util.List;
+
+import temadogrupo.persistencia.txt.ArquivoTextoRepositorio;
+import temadogrupo.persistencia.txt.Repositorio;
+import temadogrupo.persistencia.txt.SerializableTXT;
+import temadogrupo.persistencia.txt.Servico;
+
+//Esta classe é Singleton e Serializable, mas com uso de SerializableTXT e generics do exemplo Lorenzon Presistencia OO no MVN
 
 public class ConfiguracaoSingleton implements SerializableTXT {
 

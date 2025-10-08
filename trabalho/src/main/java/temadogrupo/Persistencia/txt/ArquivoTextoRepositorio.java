@@ -1,9 +1,11 @@
-package temadogrupo.Persistencia.txt;
+package temadogrupo.persistencia.txt;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
+//Usado conforme exemplo Lorenzon de Generics e persistência Serializable
 
 public class ArquivoTextoRepositorio<T extends SerializableTXT> implements Repositorio<T> {
     private final String arquivo;
