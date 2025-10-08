@@ -3,13 +3,13 @@ package temadogrupo.modelo;
 public class ConfiguracaoSingleton {
     
     private static ConfiguracaoSingleton unicaInstancia;    
-        
+
     private ConfiguracaoSingleton() {         
     }
 
-    public static Singleton getInstanciaSingleton(){
+    public static ConfiguracaoSingleton getInstanciaSingleton(){
         if (unicaInstancia == null) {
-            unicaInstancia = new Singleton();
+            unicaInstancia = new ConfiguracaoSingleton();
         }
         return unicaInstancia;
     }   

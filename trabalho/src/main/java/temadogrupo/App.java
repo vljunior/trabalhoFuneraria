@@ -6,7 +6,7 @@ import temadogrupo.modelo.*;
 
 public class App {
 
-    private ConfiguracaoSingleton configuracoesSistema;
+    private static ConfiguracaoSingleton configuracoesSistema;
 
     public static void iniciar(){        
         Video.mensagem("Carregando...");
@@ -35,7 +35,7 @@ public class App {
                     } while (opcaoPessoa != 5);
                 }                      
             }
-        } while (opcaoPrincipal != 3);
+        } while (opcaoPrincipal != 4);
 
         Video.mensagemInfo("Saindo do sistema...");
     }  
