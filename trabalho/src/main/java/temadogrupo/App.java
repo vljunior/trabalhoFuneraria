@@ -25,7 +25,7 @@ public class App {
     private static ConfiguracaoSingleton configuracoesSistema;
 
     public static void iniciar(){        
-        Video.mensagem("Carregando...");
+        Video.mensagem("Carregando sistema...");
         //Video.barraProgresso(50, 20); 
         configuracoesSistema = ConfiguracaoSingleton.getInstancia();      
     }
@@ -57,14 +57,17 @@ public class App {
                 }
             } while (opcaoPrincipal != 4);
 
-            Video.mensagemInfo("Saindo do sistema...");
-
-            // ao finalizar o sistema, salva as configurações 
-            configuracoesSistema.salvarConfiguracoes();            
+            Video.mensagemInfo("Saindo do sistema...");            
+                        
 
         } catch (Exception e) {
             new LogRepositorio().registrarExcecao(e, configuracoesSistema.getMaximoLinhasLog());
-            System.err.println("Erro não previsto registrado no log: " + e.getMessage());
+            Video.mensagemErro("Erro não previsto registrado no log: " + e.getMessage());
+        }
+        
+        finally {
+            // ao finalizar o sistema, salva as configurações 
+            configuracoesSistema.salvarConfiguracoes();
         }
     }
 }
