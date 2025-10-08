@@ -26,9 +26,9 @@ public class Menu {
 
         int opcaoEscolhida;
         do {            
-            opcaoEscolhida = Teclado.readInt("Qual a sua opção: "); 
+            opcaoEscolhida = Teclado.readInt("Qual a sua opcao: "); 
             if (opcaoEscolhida < 1 || opcaoEscolhida > opcoesMenu.size()) {
-                Video.mensagemAlerta("Opção inválida, tente novamente!");            }
+                Video.mensagemAlerta("Opcao invalida, tente novamente!");            }
         } while (opcaoEscolhida < 1 || opcaoEscolhida > opcoesMenu.size());        
 
         return opcaoEscolhida;

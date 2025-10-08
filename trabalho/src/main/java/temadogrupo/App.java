@@ -3,9 +3,6 @@ package temadogrupo;
 import temadogrupo.utilitarios.*;
 import temadogrupo.menu.*;
 import temadogrupo.modelo.*;
-import temadogrupo.persistencia.txt.ArquivoTextoRepositorio;
-import temadogrupo.persistencia.txt.Repositorio;
-import temadogrupo.persistencia.txt.Servico;
 
 /*Estrutura
 

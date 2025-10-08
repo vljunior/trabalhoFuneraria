@@ -7,6 +7,7 @@ import temadogrupo.persistencia.txt.Repositorio;
 import temadogrupo.persistencia.txt.SerializableTXT;
 import temadogrupo.persistencia.txt.Servico;
 
+
 //Esta classe é Singleton e Serializable, mas com uso de SerializableTXT e generics do exemplo Lorenzon Presistencia OO no MVN
 
 public class ConfiguracaoSingleton implements SerializableTXT {
