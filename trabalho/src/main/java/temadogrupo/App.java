@@ -1,6 +1,9 @@
 package temadogrupo;
 
 import temadogrupo.utilitarios.*;
+import temadogrupo.Persistencia.txt.ArquivoTextoRepositorio;
+import temadogrupo.Persistencia.txt.Repositorio;
+import temadogrupo.Persistencia.txt.Servico;
 import temadogrupo.menu.*;
 import temadogrupo.modelo.*;
 
@@ -10,8 +13,8 @@ public class App {
 
     public static void iniciar(){        
         Video.mensagem("Carregando...");
-        Video.barraProgresso(50, 20); 
-        configuracoesSistema = ConfiguracaoSingleton.getInstanciaSingleton();      
+        //Video.barraProgresso(50, 20); 
+        configuracoesSistema = ConfiguracaoSingleton.getInstancia();      
     }
 
     public static void main(String[] args) {
@@ -38,5 +41,8 @@ public class App {
         } while (opcaoPrincipal != 4);
 
         Video.mensagemInfo("Saindo do sistema...");
+
+        // ao finalizar o sistema, salva as configurações 
+        configuracoesSistema.salvarConfiguracoes();
     }  
 }
