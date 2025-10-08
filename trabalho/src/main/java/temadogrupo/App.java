@@ -8,9 +8,7 @@ public class App {
     public static void iniciar(){
         
         Video.mensagem("Carregando...");
-        Video.barraProgresso(50, 15);
-        Video.limparTela();
-        Video.cabecalho ("Nossa aplicação!");
+        Video.barraProgresso(50, 20);       
     }
 
     public static void main(String[] args) {
