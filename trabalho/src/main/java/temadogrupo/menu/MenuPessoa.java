@@ -23,4 +23,13 @@ public class MenuPessoa {
         Menu menu = new Menu("Cadatrar pessoa!", opcoes);
         return menu.exibir();
     }
+
+    public static int exibirListarPessoa() {
+        ArrayList<String> opcoes = new ArrayList<>();
+        opcoes.add("Clientes");
+        opcoes.add("Finados");
+        opcoes.add("Voltar");
+        Menu menu = new Menu("Listar pessoas!", opcoes);
+        return menu.exibir();
+    }
 }

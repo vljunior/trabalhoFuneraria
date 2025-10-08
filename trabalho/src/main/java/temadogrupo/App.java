@@ -3,7 +3,10 @@ package temadogrupo;
 import temadogrupo.utilitarios.*;
 import temadogrupo.menu.*;
 import temadogrupo.modelo.*;
+import temadogrupo.persistencia.nitrite.repositorio.PessoaRepositorioNitrite;
+import temadogrupo.persistencia.nitrite.servico.PessoaServico;
 import temadogrupo.persistencia.txt.LogRepositorio;
+import java.util.List;
 
 
 /*Estrutura
@@ -48,25 +51,57 @@ public class App {
                             switch (opcaoPessoa) { //sem break, com uso de ->
                                 case 1 -> { 
 
+                                    int opcaoListar;
+                                    do {
+                                        opcaoListar = MenuPessoa.exibirListarPessoa();
 
+                                        switch (opcaoListar) { //sem break, com uso de ->
+                                            case 1 -> {                                                      
+                                                PessoaRepositorioNitrite repositorio = new PessoaRepositorioNitrite();
+                                                PessoaServico servico = new PessoaServico(repositorio);
+                                                Video.cabecalho("Todos os clientes cadastrados:");
+                                                List<Cliente> clientes = servico.listarClientes();
+                                                for (Cliente cliente : clientes) {
+                                                    System.out.println(cliente);
+                                                }
+                                            }   
+                                            
+                                            case 2 -> {                                                      
+                                                PessoaRepositorioNitrite repositorio = new PessoaRepositorioNitrite();
+                                                PessoaServico servico = new PessoaServico(repositorio);
+                                                Video.cabecalho("Todos os falecidos cadastrados:");
+                                                List<Falecido> falecidos = servico.listarFalecidos();
+                                                for (Falecido falecido : falecidos) {
+                                                    System.out.println(falecido);
+                                                }
+                                            } 
+                                        } 
+                                    } while (opcaoListar != 3);
                                 }    
                                 
                                 case 3 -> {
                                     int opcaoCadatrar;
                                     do {
                                         opcaoCadatrar = MenuPessoa.exibirCadastrarPessoa();
+
                                         switch (opcaoCadatrar) { //sem break, com uso de ->
-                                            case 1 -> {                                     
+                                            case 1 -> {                                                      
+                                                PessoaRepositorioNitrite repositorio = new PessoaRepositorioNitrite();
+                                                PessoaServico servico = new PessoaServico(repositorio);
                                                 //Implementando pra abstração            
                                                 Pessoa cliente = new Cliente();
                                                 //incrementar os atributos de Cliente
                                                 //cliente.TipoPessoa = TipoPessoa.CLIENTE;
-                                            }           
+                                                servico.cadastrar(cliente);
+                                            }          
                                             
-                                            case 2 -> {                                                    
+                                            case 2 -> {       
+                                                PessoaRepositorioNitrite repositorio = new PessoaRepositorioNitrite();
+                                                PessoaServico servico = new PessoaServico(repositorio);                                             
                                                 Pessoa falecido = new Falecido();
                                                 //incrementar os atributos de Finado
                                                 //falecido.TipoPessoa = TipoPessoa.FALECIDO;
+                                                servico.cadastrar(falecido);
 
                                             }
                                         }
