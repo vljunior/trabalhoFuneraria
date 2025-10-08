@@ -14,4 +14,13 @@ public class MenuPessoa {
         Menu menu = new Menu("CRUD Pessoa!", opcoes);
         return menu.exibir();
     }
+
+    public static int exibirCadastrarPessoa() {
+        ArrayList<String> opcoes = new ArrayList<>();
+        opcoes.add("Cliente");
+        opcoes.add("Finado");
+        opcoes.add("Voltar");
+        Menu menu = new Menu("Cadatrar pessoa!", opcoes);
+        return menu.exibir();
+    }
 }

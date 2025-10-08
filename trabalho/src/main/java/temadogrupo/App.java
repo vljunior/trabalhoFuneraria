@@ -48,12 +48,33 @@ public class App {
                             switch (opcaoPessoa) { //sem break, com uso de ->
                                 case 1 -> { 
 
-                                    int a = 9/0;
 
-                                }                            
+                                }    
+                                
+                                case 3 -> {
+                                    int opcaoCadatrar;
+                                    do {
+                                        opcaoCadatrar = MenuPessoa.exibirCadastrarPessoa();
+                                        switch (opcaoCadatrar) { //sem break, com uso de ->
+                                            case 1 -> {                                     
+                                                //Implementando pra abstração            
+                                                Pessoa cliente = new Cliente();
+                                                //incrementar os atributos de Cliente
+                                            }           
+                                            
+                                            case 2 -> {                                                    
+                                                Pessoa falecido = new Falecido();
+                                                //incrementar os atributos de Finado
+
+                                            }
+                                        }
+                                    } while (opcaoCadatrar != 3);
+                                }                                
                             }
                         } while (opcaoPessoa != 5);
                     }                      
+
+                    
                 }
             } while (opcaoPrincipal != 4);
 
