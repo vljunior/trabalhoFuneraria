@@ -4,6 +4,8 @@ import org.dizitart.no2.Nitrite;
 import org.dizitart.no2.NitriteId;
 import org.dizitart.no2.objects.ObjectRepository;
 import temadogrupo.modelo.Cliente;
+import temadogrupo.utilitarios.Video;
+
 import java.util.List;
 
 public class ClienteRepositorioNitrite implements RepositorioInterface<Cliente> {
@@ -19,14 +21,18 @@ public class ClienteRepositorioNitrite implements RepositorioInterface<Cliente> 
     }
 
     @Override
-    public void salvar(Cliente objeto) {
+    public boolean salvar(Cliente objeto) {
+
+        Video.mensagem("Salvando: " + objeto);        
         
+        if (objeto == null) {
+            return false;
+        }
         if (objeto.getId() == null) {
             objeto.setId(NitriteId.newId()); // gera id único
         }
-        repositorio.update(cliente, true); //ao inves de insert, aqui insere ou atualiza
-
-        //aqui ver se pessoa é cliente ou falecido e garantir os campos...
+        repositorio.insert(objeto);        
+        return true;                
     }
 
     @Override

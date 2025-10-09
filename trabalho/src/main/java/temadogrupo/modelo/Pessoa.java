@@ -1,42 +1,42 @@
 package temadogrupo.modelo;
 
+import temadogrupo.modelo.Valor.*;
 import java.util.UUID;
-
 import org.dizitart.no2.NitriteId;
 import org.dizitart.no2.objects.Id;
-
-import temadogrupo.modelo.Valor.Endereco;
-
 public abstract class Pessoa {
 
     @Id
     private NitriteId   id;    
     
     private Cpf         cpf;
-    private String      nome;
-    private TipoPessoa  tipo;
+    private String      nome;      
 
     
-    //Devido a esta necessidade do Nitrite a classe não pode ser
-    //abstrata por Nitrite exigir um construtor padrão 
+    //Mesmo abstract é possível construtor, mas não instancia
+    //Exigência do Nitrite para poder levar os atributos 
+    //para as derivadas    
 
-
-    public Pessoa(String nome, TipoPessoa tipo) {        
-        this.nome = nome;
-        this.tipo = tipo;
+    public Pessoa(){        
     }
 
+    public Pessoa(Cpf cpf, String nome) {
+        //o id é automático pelo Nitrite
+        this.cpf = cpf;
+        this.nome = nome;
+    }
 
     public NitriteId getId() {
         return id;
     }
 
-
     public void setId(NitriteId id) {
         this.id = id;
     }
 
-    
-
+    @Override
+    public String toString() {
+        return "Pessoa [id=" + id + ", cpf=" + cpf + ", nome=" + nome + "]";
+    }
 
 }

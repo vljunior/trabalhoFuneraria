@@ -1,4 +1,4 @@
-package temadogrupo.modelo;
+package temadogrupo.modelo.Valor;
 
 public enum TipoPessoa {
     CLIENTE,

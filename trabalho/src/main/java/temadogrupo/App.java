@@ -139,15 +139,17 @@ public class App {
                 throw new Exception(); //Se não deu erro, mas voltou nulo, forço o erro
             }
 
+            configuracoesSistema.getServicoCliente().cadastrar(novo);
+            Video.pausa();
+
         }
         
         catch (Exception e) {                
                 Video.mensagemErro("Não foi possível concluir o cadastro: " + e.getMessage());
                 Video.pausa();
                 return;                    
-        }
-        configuracoesSistema.getServicoCliente().cadastrar(novo);
-        Video.pausa();
+        }       
+        
     }    
 
 }

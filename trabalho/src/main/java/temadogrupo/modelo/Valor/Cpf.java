@@ -1,8 +1,12 @@
 package temadogrupo.modelo.Valor;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
+
 public class Cpf {
     private final String numero; // sempre armazenado só com dígitos
 
+    @JsonCreator
     public Cpf(String numero) {
         if (numero == null) {
             throw new IllegalArgumentException("CPF não pode ser nulo");
@@ -17,6 +21,7 @@ public class Cpf {
         this.numero = apenasDigitos;
     }
 
+    @JsonValue
     public String getNumero() {
         return numero;
     }
