@@ -3,10 +3,8 @@ package temadogrupo;
 import temadogrupo.utilitarios.*;
 import temadogrupo.menu.*;
 import temadogrupo.modelo.*;
-import temadogrupo.persistencia.nitrite.repositorio.PessoaRepositorioNitrite;
-import temadogrupo.persistencia.nitrite.servico.PessoaServico;
-import temadogrupo.persistencia.txt.LogRepositorio;
 import java.util.List;
+
 
 
 /*Estrutura
@@ -36,7 +34,7 @@ public class App {
     public static void main(String[] args) {
 
         iniciar();
-        try {
+        //try {
             
             int opcaoPrincipal;
 
@@ -56,24 +54,45 @@ public class App {
                                         opcaoListar = MenuPessoa.exibirListarPessoa();
 
                                         switch (opcaoListar) { //sem break, com uso de ->
-                                            case 1 -> {                                                      
-                                                PessoaRepositorioNitrite repositorio = new PessoaRepositorioNitrite();
-                                                PessoaServico servico = new PessoaServico(repositorio);
-                                                Video.cabecalho("Todos os clientes cadastrados:");
-                                                List<Cliente> clientes = servico.listarClientes();
-                                                for (Cliente cliente : clientes) {
-                                                    System.out.println(cliente);
+                                            case 1 -> {                                               
+                                                                                                
+                                                List<Cliente> clientes = configuracoesSistema.getServicoPessoa().listarClientes();
+                                                
+                                                //Guardian clause, Fail first
+                                                if (clientes == null) {
+                                                    Video.mensagemAlerta("Não há clientes cadastrados");
+                                                    //Early break/return                                                   
+                                                    break;
                                                 }
+
+                                                Video.mensagem("Passei");
+                                                Video.pausa();
+
+                                                //happy path
+                                                Video.cabecalho("Todos os clientes cadastrados:");
+                                                for (Cliente cliente : clientes) {
+                                                        System.out.println(cliente);
+                                                }                                                                                            
+                                                
                                             }   
                                             
-                                            case 2 -> {                                                      
-                                                PessoaRepositorioNitrite repositorio = new PessoaRepositorioNitrite();
-                                                PessoaServico servico = new PessoaServico(repositorio);
-                                                Video.cabecalho("Todos os falecidos cadastrados:");
-                                                List<Falecido> falecidos = servico.listarFalecidos();
+                                            case 2 -> {                                                                                                     
+
+                                                /*List<Falecido> falecidos = servicoPessoa.listarFalecidos();
+
+                                                //Guardian clause, Fail first
+                                                if (falecidos == null) {
+                                                    Video.mensagemAlerta("Não há clientes cadastrados");
+                                                    //Early break/return
+                                                    break;
+                                                }
+
+                                                //happy path
+                                                Video.cabecalho("Todos os falecidos cadastrados:");                                               
+                                                
                                                 for (Falecido falecido : falecidos) {
                                                     System.out.println(falecido);
-                                                }
+                                                }      */                                          
                                             } 
                                         } 
                                     } while (opcaoListar != 3);
@@ -85,24 +104,24 @@ public class App {
                                         opcaoCadatrar = MenuPessoa.exibirCadastrarPessoa();
 
                                         switch (opcaoCadatrar) { //sem break, com uso de ->
-                                            case 1 -> {                                                      
-                                                PessoaRepositorioNitrite repositorio = new PessoaRepositorioNitrite();
-                                                PessoaServico servico = new PessoaServico(repositorio);
-                                                //Implementando pra abstração            
-                                                Pessoa cliente = new Cliente();
+                                            case 1 -> {                                                                                                                                                        
+                                                //Endereco endereco = new Endereco("89800000", "Rua tal", "100N", "Chapeso-SC");
+                                                Pessoa cliente = new Pessoa ("Lorenzon", TipoPessoa.CLIENTE);
                                                 //incrementar os atributos de Cliente
                                                 //cliente.TipoPessoa = TipoPessoa.CLIENTE;
-                                                servico.cadastrar(cliente);
+                                                //configuracoesSistema.servicoPessoa.cadastrar(cliente);
+                                                
+
+                                                Video.pausa();
+
                                             }          
                                             
-                                            case 2 -> {       
-                                                PessoaRepositorioNitrite repositorio = new PessoaRepositorioNitrite();
-                                                PessoaServico servico = new PessoaServico(repositorio);                                             
+                                            case 2 -> {                                                                                                 
                                                 Pessoa falecido = new Falecido();
                                                 //incrementar os atributos de Finado
                                                 //falecido.TipoPessoa = TipoPessoa.FALECIDO;
-                                                servico.cadastrar(falecido);
-
+                                                //configuracoesSistema.servicoPessoa.cadastrar(falecido);
+                                                
                                             }
                                         }
                                     } while (opcaoCadatrar != 3);
@@ -118,17 +137,18 @@ public class App {
             Video.mensagemInfo("Saindo do sistema...");            
                         
 
-        } catch (Exception e) {
+        //} catch (Exception e) {
             
-            Video.mensagemErro("Erro não previsto registrado no log: " + e.getMessage());            
-            LogRepositorio log = new LogRepositorio();
-            log.registrarExcecao(e, configuracoesSistema.getMaximoLinhasLog());
+            //Video.mensagemErro("Erro não previsto registrado no log: " + e.getMessage());            
+            //LogRepositorio log = new LogRepositorio();
+            //.registrarExcecao(e, configuracoesSistema.getMaximoLinhasLog());
             
-        }              
+        //}              
         
-        finally {
+        //finally {
             // ao finalizar o sistema, salva as configurações 
+            configuracoesSistema.fecharDatabase();
             configuracoesSistema.salvarConfiguracoes();
-        }
+        //}
     }
 }

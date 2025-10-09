@@ -33,4 +33,30 @@ public class Menu {
 
         return opcaoEscolhida;
     }
+
+    public static int exibirExemplo() { //usar como static em uma classe de menus
+        ArrayList<String> opcoes = new ArrayList<>();
+        opcoes.add("Opcao 1");
+        opcoes.add("Opcao 2");
+        opcoes.add("Voltar");
+        Menu menu = new Menu("Menu de Opcoes", opcoes);
+        return menu.exibir();
+    }
+
+    /*Na App 
+     * 
+     * int opcaoPrincipal;
+
+            do {
+                opcaoPrincipal = MenuPrincipal.exibir();
+
+                switch (opcaoPrincipal) {
+                    case 1 -> {
+                     ...
+                    }
+                ...
+            ...
+     *  
+    */
+
 }

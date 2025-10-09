@@ -12,6 +12,7 @@ temadogrupo\menu\Menu.class
 temadogrupo\menu\MenuPessoa.class
 temadogrupo\menu\MenuPrincipal.class
 temadogrupo\utilitarios\Video.class
+temadogrupo\persistencia\nitrite\repositorio\Database.class
 temadogrupo\persistencia\nitrite\servico\PessoaServico.class
 temadogrupo\persistencia\txt\ArquivoTxtConfiguracoes.class
 temadogrupo\utilitarios\Teclado.class

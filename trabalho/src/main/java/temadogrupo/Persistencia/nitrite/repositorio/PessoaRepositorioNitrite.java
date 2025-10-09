@@ -2,27 +2,27 @@ package temadogrupo.persistencia.nitrite.repositorio;
 
 import org.dizitart.no2.Nitrite;
 import org.dizitart.no2.objects.ObjectRepository;
-import org.dizitart.no2.objects.filters.ObjectFilters;
-
 import temadogrupo.modelo.Pessoa;
 import java.util.List;
 
 public class PessoaRepositorioNitrite {
-    private final Nitrite db;
+    private final Nitrite bancoDeDadosNitrite;
     private final ObjectRepository<Pessoa> repositorio;
 
-    public PessoaRepositorioNitrite() {
-        this.db = Nitrite.builder()
-                .filePath("pessoas.db")
-                .openOrCreate("user", "password");
-        this.repositorio = db.getRepository(Pessoa.class);
+    public PessoaRepositorioNitrite(Nitrite bancoDeDadosNitrite) {
+        
+        this.bancoDeDadosNitrite = bancoDeDadosNitrite;
+        this.repositorio = this.bancoDeDadosNitrite.getRepository(Pessoa.class);
+
     }
 
     public void salvar(Pessoa pessoa) {
         repositorio.insert(pessoa);
+
+        //aqui ver se pessoa é cliente ou falecido e garantir os campos...
     }
 
-    public List<Pessoa> listarTodos() {
+    public List<Pessoa> listarTodos() {        
         return repositorio.find().toList();
     }
 
@@ -52,9 +52,5 @@ public class PessoaRepositorioNitrite {
             repositorio.update(aluno, true);
         }
     }
-    */
-
-    public void fechar() {
-        db.close();
-    }
+    */  
 }

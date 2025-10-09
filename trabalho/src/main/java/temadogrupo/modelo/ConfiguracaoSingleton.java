@@ -1,9 +1,14 @@
 package temadogrupo.modelo;
 
+import temadogrupo.persistencia.nitrite.repositorio.PessoaRepositorioNitrite;
+import temadogrupo.persistencia.nitrite.servico.PessoaServico;
 import temadogrupo.persistencia.txt.*;
 import temadogrupo.utilitarios.Video;
+import temadogrupo.persistencia.nitrite.repositorio.Database;
 
 import java.io.IOException;
+
+import org.dizitart.no2.Nitrite;
 
 
 
@@ -12,6 +17,9 @@ import java.io.IOException;
 public class ConfiguracaoSingleton implements SerializableTXT {
 
     private static ConfiguracaoSingleton instancia;
+    private static Nitrite bancoDeDadosNitrite;
+    public static PessoaRepositorioNitrite repositorioPessoa;
+    public static PessoaServico servicoPessoa;
 
     private String opcao = "Algo"; //um atributo de configuração pra seguir de exemplo para os demais que surgirem
     private int maximoLinhasLog = 100;
@@ -25,7 +33,12 @@ public class ConfiguracaoSingleton implements SerializableTXT {
     }
 
     private ConfiguracaoSingleton() {
-        carregarConfiguracoes();
+        carregarConfiguracoes();   
+        bancoDeDadosNitrite = Database.getDb();     
+    }
+
+    public void fecharDatabase(){
+        Database.fecharDb();
     }
 
     public static ConfiguracaoSingleton getInstancia() {
@@ -68,7 +81,9 @@ public class ConfiguracaoSingleton implements SerializableTXT {
             
         } catch (IOException e) {
             setOpcao("padrao");
+            setMaximoLinhasLog(100);
         }
+
     }
 
     public void salvarConfiguracoes() {
@@ -78,4 +93,24 @@ public class ConfiguracaoSingleton implements SerializableTXT {
             e.printStackTrace();
         }
     }
+
+    public static PessoaServico getServicoPessoa() {
+
+        Video.mensagem(servicoPessoa + "");
+        Video.mensagem(repositorioPessoa+ "");
+
+        if (servicoPessoa == null) {
+            repositorioPessoa = new PessoaRepositorioNitrite(Database.getDb());
+            servicoPessoa = new PessoaServico(repositorioPessoa);
+            
+        }
+
+        Video.mensagem(servicoPessoa + "");
+        Video.mensagem(repositorioPessoa+ "");
+        return servicoPessoa;
+    }   
+
+
 }
+
+    
