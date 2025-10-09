@@ -1,6 +1,7 @@
 package temadogrupo.persistencia.nitrite.repositorio;
 
 import org.dizitart.no2.Nitrite;
+import org.dizitart.no2.NitriteId;
 import org.dizitart.no2.objects.ObjectRepository;
 import temadogrupo.modelo.Pessoa;
 import java.util.List;
@@ -18,7 +19,11 @@ public class PessoaRepositorioNitrite {
     }
 
     public void salvar(Pessoa pessoa) {
-        repositorio.insert(pessoa);
+        
+        if (pessoa.getId() == null) {
+            pessoa.setId(NitriteId.newId()); // gera id único
+        }
+        repositorio.update(pessoa, true); //ao inves de insert, aqui insere ou atualiza
 
         //aqui ver se pessoa é cliente ou falecido e garantir os campos...
     }

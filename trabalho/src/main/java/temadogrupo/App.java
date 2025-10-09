@@ -3,6 +3,9 @@ package temadogrupo;
 import temadogrupo.utilitarios.*;
 import temadogrupo.menu.*;
 import temadogrupo.modelo.*;
+import temadogrupo.persistencia.nitrite.repositorio.Database;
+import temadogrupo.persistencia.nitrite.repositorio.PessoaRepositorioNitrite;
+
 import java.util.List;
 
 
@@ -33,7 +36,32 @@ public class App {
 
     public static void main(String[] args) {
 
+        //Database.fecharDb();
         iniciar();
+/* 
+        Pessoa cliente = new Pessoa ("Lorenzon", TipoPessoa.CLIENTE);
+        configuracoesSistema.getServicoPessoa().cadastrar(cliente);      
+
+        
+        List<Pessoa> clientes = configuracoesSistema.getServicoPessoa().listar();
+        
+        //Guardian clause, Fail first
+        if (clientes == null) {
+            Video.mensagemAlerta("Não há clientes cadastrados");
+            Video.pausa();
+            //Early break/return                                                   
+            
+        }                                                
+
+        //happy path
+        Video.cabecalho("Todos os clientes cadastrados:");
+        for (Pessoa cliente1 : clientes) {
+                System.out.println(cliente1);
+        }     
+
+        */
+
+
         //try {
             
             int opcaoPrincipal;
@@ -56,7 +84,7 @@ public class App {
                                         switch (opcaoListar) { //sem break, com uso de ->
                                             case 1 -> {                                               
                                                                                                 
-                                                List<Cliente> clientes = configuracoesSistema.getServicoPessoa().listarClientes();
+                                                List<Pessoa> clientes = configuracoesSistema.getServicoPessoa().listar();//Clientes();
                                                 
                                                 //Guardian clause, Fail first
                                                 if (clientes == null) {
@@ -68,10 +96,11 @@ public class App {
 
                                                 //happy path
                                                 Video.cabecalho("Todos os clientes cadastrados:");
-                                                for (Cliente cliente : clientes) {
+                                                for (Pessoa cliente : clientes) {
                                                         System.out.println(cliente);
-                                                }                                                                                            
+                                                }    
                                                 
+                                                Video.pausa();                                                
                                             }   
                                             
                                             case 2 -> {                                                                                                     
@@ -90,7 +119,9 @@ public class App {
                                                 
                                                 for (Falecido falecido : falecidos) {
                                                     System.out.println(falecido);
-                                                }      */                                          
+                                                }      */                                                       
+                                                
+                                                
                                             } 
                                         } 
                                     } while (opcaoListar != 3);
@@ -144,7 +175,7 @@ public class App {
         //}              
         
         //finally {
-            // ao finalizar o sistema, salva as configurações 
+            // ao finalizar o sistema, salva as configurações             
             configuracoesSistema.fecharDatabase();
             configuracoesSistema.salvarConfiguracoes();
         //}

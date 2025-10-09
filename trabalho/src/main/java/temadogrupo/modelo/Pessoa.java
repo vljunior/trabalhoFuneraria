@@ -11,20 +11,35 @@ public class Pessoa {
 
     @Id
     private NitriteId   id;    
-    private String      nome;
-    private TipoPessoa  tipo;
     
 
-    public Pessoa(String nome, TipoPessoa tipo) {
-        //this.id = id;
-        this.nome = nome;
-        this.tipo = tipo;
-    }
+    private String      nome;
+    private TipoPessoa  tipo;
 
+    
     //Devido a esta necessidade do Nitrite a classe não pode ser
     //abstra por Nitrite exigir um construtor padrão
     public Pessoa() {
        
     }
+
+
+    public Pessoa(String nome, TipoPessoa tipo) {        
+        this.nome = nome;
+        this.tipo = tipo;
+    }
+
+
+    public NitriteId getId() {
+        return id;
+    }
+
+
+    public void setId(NitriteId id) {
+        this.id = id;
+    }
+
+    
+
 
 }
