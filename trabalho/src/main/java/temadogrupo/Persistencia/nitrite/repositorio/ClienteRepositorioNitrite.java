@@ -3,33 +3,40 @@ package temadogrupo.persistencia.nitrite.repositorio;
 import org.dizitart.no2.Nitrite;
 import org.dizitart.no2.NitriteId;
 import org.dizitart.no2.objects.ObjectRepository;
-import temadogrupo.modelo.Pessoa;
+import temadogrupo.modelo.Cliente;
 import java.util.List;
 
-public class PessoaRepositorioNitrite {
+public class ClienteRepositorioNitrite implements RepositorioInterface<Cliente> {
     private final Nitrite bancoDeDadosNitrite;
-    private final ObjectRepository<Pessoa> repositorio;
+    private final ObjectRepository<Cliente> repositorio;
 
-    public PessoaRepositorioNitrite(Nitrite bancoDeDadosNitrite) {
+    public ClienteRepositorioNitrite(Nitrite bancoDeDadosNitrite) {
         
         this.bancoDeDadosNitrite = bancoDeDadosNitrite;
         //informar que "tabela" o repositorio representa
-        this.repositorio = bancoDeDadosNitrite.getRepository(Pessoa.class);
+        this.repositorio = bancoDeDadosNitrite.getRepository(Cliente.class);
 
     }
 
-    public void salvar(Pessoa pessoa) {
+    @Override
+    public void salvar(Cliente objeto) {
         
-        if (pessoa.getId() == null) {
-            pessoa.setId(NitriteId.newId()); // gera id único
+        if (objeto.getId() == null) {
+            objeto.setId(NitriteId.newId()); // gera id único
         }
-        repositorio.update(pessoa, true); //ao inves de insert, aqui insere ou atualiza
+        repositorio.update(cliente, true); //ao inves de insert, aqui insere ou atualiza
 
         //aqui ver se pessoa é cliente ou falecido e garantir os campos...
     }
 
-    public List<Pessoa> listarTodos() {        
+    @Override
+    public List<Cliente> listarTodos() {        
         return repositorio.find().toList();
+    }
+
+    @Override
+    public deletar (Cliente objeto){
+
     }
 
     /*
@@ -45,11 +52,15 @@ public class PessoaRepositorioNitrite {
     }
 
     //update - dar insert com o mesmo id
-
-    public void atualizarAluno(Aluno aluno) {
+*/
+    @Override
+    public void atualizar(Cliente objeto) {
         // Atualiza pelo campo @Id (matricula)
-        repositorio.update(aluno, true); 
+        repositorio.update(objeto, true); 
     }
+    
+    /*
+    
 
     public void atualizarNomePorMatricula(String matricula, String novoNome) {
         Aluno aluno = buscarPorMatricula(matricula);

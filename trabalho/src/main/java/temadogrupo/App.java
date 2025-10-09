@@ -4,7 +4,7 @@ import temadogrupo.utilitarios.*;
 import temadogrupo.menu.*;
 import temadogrupo.modelo.*;
 import temadogrupo.persistencia.nitrite.repositorio.Database;
-import temadogrupo.persistencia.nitrite.repositorio.PessoaRepositorioNitrite;
+import temadogrupo.persistencia.nitrite.repositorio.ClienteRepositorioNitrite;
 
 import java.util.List;
 
@@ -36,7 +36,7 @@ public class App {
 
     public static void main(String[] args) {
 
-        //Database.fecharDb();
+        Database.fecharDb(); //forçando caso sair do sistema de forma anormal.
         iniciar();
 /* 
         Pessoa cliente = new Pessoa ("Lorenzon", TipoPessoa.CLIENTE);
@@ -60,8 +60,6 @@ public class App {
         }     
 
         */
-
-
         //try {
             
             int opcaoPrincipal;
@@ -84,7 +82,7 @@ public class App {
                                         switch (opcaoListar) { //sem break, com uso de ->
                                             case 1 -> {                                               
                                                                                                 
-                                                List<Pessoa> clientes = configuracoesSistema.getServicoPessoa().listar();//Clientes();
+                                                List<Cliente> clientes = configuracoesSistema.getServicoCliente().listar();//Clientes();
                                                 
                                                 //Guardian clause, Fail first
                                                 if (clientes == null) {
@@ -96,7 +94,7 @@ public class App {
 
                                                 //happy path
                                                 Video.cabecalho("Todos os clientes cadastrados:");
-                                                for (Pessoa cliente : clientes) {
+                                                for (Cliente cliente : clientes) {
                                                         System.out.println(cliente);
                                                 }    
                                                 
@@ -135,8 +133,8 @@ public class App {
                                         switch (opcaoCadatrar) { //sem break, com uso de ->
                                             case 1 -> {                                                                                                                                                        
                                                 //Endereco endereco = new Endereco("89800000", "Rua tal", "100N", "Chapeso-SC");
-                                                Pessoa cliente = new Pessoa ("Lorenzon", TipoPessoa.CLIENTE);
-                                                configuracoesSistema.getServicoPessoa().cadastrar(cliente);
+                                                Cliente cliente = new Cliente (); //("Lorenzon", TipoPessoa.CLIENTE);
+                                                configuracoesSistema.getServicoCliente().cadastrar(cliente);
                                                 //incrementar os atributos de Cliente
                                                 //cliente.TipoPessoa = TipoPessoa.CLIENTE;
                                                 //configuracoesSistema.servicoPessoa.cadastrar(cliente);

@@ -1,36 +1,27 @@
 package temadogrupo.persistencia.nitrite.servico;
 
 import temadogrupo.modelo.*;
-import temadogrupo.persistencia.nitrite.repositorio.PessoaRepositorioNitrite;
+import temadogrupo.persistencia.nitrite.repositorio.ClienteRepositorioNitrite;
+import temadogrupo.persistencia.nitrite.repositorio.RepositorioInterface;
+
 import org.dizitart.no2.NitriteId;
 import java.util.List;
 
-public class PessoaServico {
+public class ClienteServico {
 
-    private final PessoaRepositorioNitrite repositorio;
+    private final RepositorioInterface<Cliente> repositorio;
 
-    public PessoaServico(PessoaRepositorioNitrite repositorio) {
+    public ClienteServico(RepositorioInterface<Cliente> repositorio) {
         this.repositorio = repositorio;
     }
 
-    public void cadastrar(Pessoa pessoa) { 
-        repositorio.salvar(pessoa); 
+    public void cadastrar(Cliente cliente) { 
+        repositorio.salvar(cliente); 
     }
 
-    public List<Pessoa> listar() { 
+    public List<Cliente> listar() { 
         return repositorio.listarTodos(); 
-    }
-
-    public List<Cliente> listarClientes() { 
-        repositorio.listarTodos(); 
-        return null;
-    }
-
-    public List<Falecido> listarFalecidos() { 
-        //return repositorio.listarTodos(); 
-        return null;
-    }
-
+    }    
 /*     
     // Métodos com ID técnico
     public Aluno buscarAluno(NitriteId id) { 

@@ -7,7 +7,7 @@ import org.dizitart.no2.objects.Id;
 
 import temadogrupo.modelo.Valor.Endereco;
 
-public class Pessoa {
+public abstract class Pessoa {
 
     @Id
     private NitriteId   id;    
@@ -18,10 +18,7 @@ public class Pessoa {
 
     
     //Devido a esta necessidade do Nitrite a classe não pode ser
-    //abstra por Nitrite exigir um construtor padrão
-    public Pessoa() {
-       
-    }
+    //abstrata por Nitrite exigir um construtor padrão 
 
 
     public Pessoa(String nome, TipoPessoa tipo) {        

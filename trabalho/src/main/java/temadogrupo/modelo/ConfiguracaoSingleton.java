@@ -1,7 +1,7 @@
 package temadogrupo.modelo;
 
-import temadogrupo.persistencia.nitrite.repositorio.PessoaRepositorioNitrite;
-import temadogrupo.persistencia.nitrite.servico.PessoaServico;
+import temadogrupo.persistencia.nitrite.repositorio.ClienteRepositorioNitrite;
+import temadogrupo.persistencia.nitrite.servico.ClienteServico;
 import temadogrupo.persistencia.txt.*;
 import temadogrupo.utilitarios.Video;
 import temadogrupo.persistencia.nitrite.repositorio.Database;
@@ -17,9 +17,8 @@ import org.dizitart.no2.Nitrite;
 public class ConfiguracaoSingleton implements SerializableTXT {
 
     private static ConfiguracaoSingleton instancia;
-    private static Nitrite bancoDeDadosNitrite;
-    public static PessoaRepositorioNitrite repositorioPessoa;
-    public static PessoaServico servicoPessoa;
+    private static Nitrite bancoDeDadosNitrite;    
+    public static ClienteServico servicoCliente;
 
     private String opcao = "Algo"; //um atributo de configuração pra seguir de exemplo para os demais que surgirem
     private int maximoLinhasLog = 100;
@@ -94,18 +93,15 @@ public class ConfiguracaoSingleton implements SerializableTXT {
         }
     }
 
-    public static PessoaServico getServicoPessoa() {
+    public static ClienteServico getServicoCliente() {
        
 
-        if (servicoPessoa == null) {
-            repositorioPessoa = new PessoaRepositorioNitrite(Database.getDb());
-            servicoPessoa = new PessoaServico(repositorioPessoa);
-            
+        if (servicoCliente == null) {            
+            servicoCliente = new ClienteServico(new ClienteRepositorioNitrite(Database.getDb()));            
         }
         
-        return servicoPessoa;
+        return servicoCliente;
     }   
-
 
 }
 
