@@ -95,18 +95,14 @@ public class ConfiguracaoSingleton implements SerializableTXT {
     }
 
     public static PessoaServico getServicoPessoa() {
-
-        Video.mensagem(servicoPessoa + "");
-        Video.mensagem(repositorioPessoa+ "");
+       
 
         if (servicoPessoa == null) {
             repositorioPessoa = new PessoaRepositorioNitrite(Database.getDb());
             servicoPessoa = new PessoaServico(repositorioPessoa);
             
         }
-
-        Video.mensagem(servicoPessoa + "");
-        Video.mensagem(repositorioPessoa+ "");
+        
         return servicoPessoa;
     }   
 

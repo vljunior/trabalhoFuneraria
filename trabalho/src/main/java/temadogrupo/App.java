@@ -61,12 +61,10 @@ public class App {
                                                 //Guardian clause, Fail first
                                                 if (clientes == null) {
                                                     Video.mensagemAlerta("Não há clientes cadastrados");
+                                                    Video.pausa();
                                                     //Early break/return                                                   
                                                     break;
-                                                }
-
-                                                Video.mensagem("Passei");
-                                                Video.pausa();
+                                                }                                                
 
                                                 //happy path
                                                 Video.cabecalho("Todos os clientes cadastrados:");
@@ -107,10 +105,10 @@ public class App {
                                             case 1 -> {                                                                                                                                                        
                                                 //Endereco endereco = new Endereco("89800000", "Rua tal", "100N", "Chapeso-SC");
                                                 Pessoa cliente = new Pessoa ("Lorenzon", TipoPessoa.CLIENTE);
+                                                configuracoesSistema.getServicoPessoa().cadastrar(cliente);
                                                 //incrementar os atributos de Cliente
                                                 //cliente.TipoPessoa = TipoPessoa.CLIENTE;
                                                 //configuracoesSistema.servicoPessoa.cadastrar(cliente);
-                                                
 
                                                 Video.pausa();
 

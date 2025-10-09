@@ -12,7 +12,8 @@ public class PessoaRepositorioNitrite {
     public PessoaRepositorioNitrite(Nitrite bancoDeDadosNitrite) {
         
         this.bancoDeDadosNitrite = bancoDeDadosNitrite;
-        this.repositorio = this.bancoDeDadosNitrite.getRepository(Pessoa.class);
+        //informar que "tabela" o repositorio representa
+        this.repositorio = bancoDeDadosNitrite.getRepository(Pessoa.class);
 
     }
 

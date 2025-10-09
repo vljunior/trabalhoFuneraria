@@ -22,7 +22,7 @@ public class PessoaServico {
     }
 
     public List<Cliente> listarClientes() { 
-        // repositorio.listarTodos(); 
+        repositorio.listarTodos(); 
         return null;
     }
 
