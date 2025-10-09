@@ -12,7 +12,7 @@ public abstract class Pessoa {
     @Id
     private NitriteId   id;    
     
-
+    private Cpf         cpf;
     private String      nome;
     private TipoPessoa  tipo;
 

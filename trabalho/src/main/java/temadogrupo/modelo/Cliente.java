@@ -2,6 +2,16 @@ package temadogrupo.modelo;
 
 import temadogrupo.modelo.Valor.*;
 
+/*
+public abstract class Pessoa {
+
+    @Id
+    private NitriteId   id;    
+    
+    private Cpf         cpf;
+    private String      nome;
+    private TipoPessoa  tipo;*/
+    
 public class Cliente extends Pessoa{
     
     private Endereco    endereco;
