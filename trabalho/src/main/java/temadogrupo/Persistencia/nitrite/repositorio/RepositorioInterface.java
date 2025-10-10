@@ -8,6 +8,6 @@ public interface RepositorioInterface<T> {
      public boolean salvar(T objeto);
      public List<T> listarTodos();
      public void atualizar(T objeto);
-     void deletar(T objeto); 
+     public void deletar(T objeto); 
 
 }

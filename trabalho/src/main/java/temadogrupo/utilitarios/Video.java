@@ -119,9 +119,8 @@ public class Video {
     }
 
     // --- Mensagem de cofirmação --- 
-    public static boolean confirmar(String pergunta) {
-        System.out.print(pergunta + " (s/n): ");
-        String resposta = scanner.nextLine().trim().toLowerCase();
+    public static boolean confirmar(String pergunta) {        
+        String resposta = Teclado.readString(pergunta + " (s/n): ").trim().toLowerCase();
         return resposta.equals("s") || resposta.equals("sim");
     }
 

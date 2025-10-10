@@ -80,8 +80,8 @@ public class ClienteCrud {
             cpf = new Cpf (Teclado.readString("Informe o Cpf:"));    
             Cliente cliente = servico.buscarPorCpf(cpf);
             Video.mensagem("Localizado: " + cliente);
-            if (Video.confirmar("Deseja excluir?") {
-                servico.deletarCliente(cpf);
+            if (Video.confirmar("Deseja excluir?")) {
+                servico.deletarClientePorCpf(cpf);
             }                
         } catch (IllegalArgumentException e) {  //ver outra exceção              
                 Video.mensagemErro("Não foi possível localizar o cadastro: " + e.getMessage());

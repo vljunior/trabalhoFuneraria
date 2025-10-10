@@ -42,12 +42,10 @@ public class ClienteServico {
         return (((ClienteRepositorioNitrite)repositorio).buscarPorCpf(cpf)); //Casting devido a não ser pra implementação
     }
 
-    /*
 
-    public void removerPorCpf(Cpf cpf) { 
-        repositorio.deletarPorMatricula(matricula); 
+    public void deletarClientePorCpf(Cpf cpf) { 
+        //repositorio.deletarPorMatricula(matricula); 
     }
-      */  
           
 
 }

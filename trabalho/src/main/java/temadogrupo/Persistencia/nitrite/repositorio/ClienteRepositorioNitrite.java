@@ -3,6 +3,8 @@ package temadogrupo.persistencia.nitrite.repositorio;
 import org.dizitart.no2.Nitrite;
 import org.dizitart.no2.NitriteId;
 import org.dizitart.no2.objects.ObjectRepository;
+import org.dizitart.no2.objects.filters.ObjectFilters;
+
 import temadogrupo.modelo.Cliente;
 import temadogrupo.modelo.Valor.Cpf;
 import temadogrupo.utilitarios.Video;
@@ -41,11 +43,6 @@ public class ClienteRepositorioNitrite implements RepositorioInterface<Cliente> 
         return repositorio.find().toList();
     }
 
-    @Override
-    public deletar (Cliente objeto){
-
-    }
-
     
     // Buscar por CPF (chave de negócio)
     public Cliente buscarPorCpf(Cpf cpf) {
@@ -53,11 +50,15 @@ public class ClienteRepositorioNitrite implements RepositorioInterface<Cliente> 
                    .firstOrDefault();
     }
 
-    
+    @Override
+    public void deletar(Cliente objeto) {
+        //repositorio.remove(ObjectFilters.eq("cpf", objeto.getNumero()));
+
+    }        
 
     // Deletar por Cpf
     public void deletarPorCpf(Cpf cpf) {
-        repositorio.remove(ObjectFilters.eq("cpf", cpf.getNumero()));
+        //repositorio.remove(ObjectFilters.eq("cpf", cpf.getNumero()));
     }
 
 
