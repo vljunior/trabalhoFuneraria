@@ -2,6 +2,7 @@ package temadogrupo.modelo;
 import temadogrupo.modelo.Valor.*;
 
 
+
 public class Cliente extends Pessoa{
     
     private Endereco    endereco;
@@ -10,7 +11,7 @@ public class Cliente extends Pessoa{
     private String      grauParentescoFalecido;
     private String      telefone;
     private String      email;
-    
+    private Cpf         cpf;    
     
     //Devido ao Nitrite, precisa ter
     public  Cliente(){
@@ -24,8 +25,9 @@ public class Cliente extends Pessoa{
                     Endereco endereco, String nomeContato, String nomeResponsavel, String grauParentescoFalecido,
                     String telefone, String email) {
 
-        super (cpf, nome);
+        super (nome);
 
+        this.cpf = cpf;
         this.endereco = endereco;
         this.nomeContato = nomeContato;
         this.nomeResponsavel = nomeResponsavel;
@@ -38,11 +40,26 @@ public class Cliente extends Pessoa{
     public String toString() {
 
         return super.toString() + "\n" +
-               "Cliente [endereco=" + endereco + ", nomeContato=" + nomeContato + ", nomeResponsavel=" + nomeResponsavel
+               "Cliente [cpf= " + cpf + ", endereco=" + endereco + ", nomeContato=" + nomeContato + ", nomeResponsavel=" + nomeResponsavel
                 + ", grauParentescoFalecido=" + grauParentescoFalecido + ", telefone=" + telefone + ", email=" + email
                 + "]";
     }
 
-         
+    public Endereco getEndereco(){
+        return endereco;
+    }
+
+    public String enderecoToString(){
+
+        return "[" + endereco + "]";
+
+    }
+
+    public String contatoToString(){
+
+        return "[Contato: " + nomeContato + ", responsável: " + nomeResponsavel + ", parentesco: "
+                + grauParentescoFalecido +  ", telefone: " + telefone + ", e-mail: " + email + "]";
+
+    }         
 
 }

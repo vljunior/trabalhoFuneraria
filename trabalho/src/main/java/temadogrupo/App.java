@@ -1,7 +1,7 @@
 package temadogrupo;
 
 import temadogrupo.utilitarios.*;
-import temadogrupo.crud.ClienteCrud;
+import temadogrupo.controllerview.ClienteCrud;
 import temadogrupo.menu.*;
 import temadogrupo.modelo.*;
 import temadogrupo.modelo.Valor.Cpf;

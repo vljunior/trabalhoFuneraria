@@ -6,8 +6,7 @@ public abstract class Pessoa {
 
     @Id
     private NitriteId   id;    
-    //
-    private Cpf         cpf;
+    
     private String      nome;      
     
     //Mesmo abstract é possível construtor, mas não instancia
@@ -17,9 +16,8 @@ public abstract class Pessoa {
     public Pessoa(){        
     }
 
-    public Pessoa(Cpf cpf, String nome) {
-        //o id é automático pelo Nitrite
-        this.cpf = cpf;
+    public Pessoa(String nome) {
+        //o id é automático pelo Nitrite        
         this.nome = nome;
     }
 
@@ -33,7 +31,7 @@ public abstract class Pessoa {
 
     @Override
     public String toString() {
-        return "Pessoa [id=" + id + ", cpf=" + cpf + ", nome=" + nome + "]";
+        return "Pessoa [id=" + id + ",  nome=" + nome + "]";
     }
 
 }

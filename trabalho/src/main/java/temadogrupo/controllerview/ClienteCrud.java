@@ -1,4 +1,4 @@
-package temadogrupo.crud;
+package temadogrupo.controllerview;
 
 import java.util.List;
 
