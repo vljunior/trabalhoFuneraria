@@ -41,43 +41,9 @@ public class App {
 
                 switch (opcaoPrincipal) {
                     case 1 -> {
-                        int opcaoPessoa;
-                        do {
-                            opcaoPessoa = MenuPessoa.exibir();
-                            switch (opcaoPessoa) { //sem break, com uso de ->
-                                case 1 -> { 
-
-                                    int opcaoListar;
-                                    do {
-                                        opcaoListar = MenuPessoa.exibirListarPessoa();
-                                        switch (opcaoListar) { //sem break, com uso de ->
-                                            case 1 -> {                                         
-                                                ClienteCrud.listarClientes(configuracoesSistema.getServicoCliente());                                                
-                                            }                                               
-                                            case 2 -> {
-                                            } 
-                                        }                                         
-                                    } while (opcaoListar != 3);
-                                }    
-                                
-                                case 3 -> {
-                                    int opcaoCadatrar;
-                                    do {
-                                        opcaoCadatrar = MenuPessoa.exibirCadastrarPessoa();
-                                        switch (opcaoCadatrar) { 
-                                            case 1 -> {                                                    
-                                                ClienteCrud.criarCliente(configuracoesSistema.getServicoCliente());                                            }
-                                            case 2 -> {                                                                                                 
-                                                //Falecido
-                                            }
-                                        }
-                                    } while (opcaoCadatrar != 3);
-                                }
-                            }
-                        } while (opcaoPessoa != 6);
+                        tratarMenuPessoa();
                     }                      
 
-                    
                 }
             } while (opcaoPrincipal != 4);
 
@@ -105,4 +71,39 @@ public class App {
         configuracoesSistema = ConfiguracaoSingleton.getInstancia();      
     }    
 
+    public static void tratarMenuPessoa(){
+        int opcaoPessoa;
+        do {
+            opcaoPessoa = MenuPessoa.exibir();
+            switch (opcaoPessoa) { //sem break, com uso de ->
+                case 1 -> {
+                    int opcaoListar;
+                    do {
+                        opcaoListar = MenuPessoa.exibirListarPessoa();
+                        switch (opcaoListar) { //sem break, com uso de ->
+                            case 1 -> {                                         
+                                ClienteCrud.listarClientes(configuracoesSistema.getServicoCliente());                                                
+                            }                                               
+                            case 2 -> {
+                            } 
+                        }                                         
+                    } while (opcaoListar != 3);
+                }    
+                
+                case 3 -> {
+                    int opcaoCadatrar;
+                    do {
+                        opcaoCadatrar = MenuPessoa.exibirCadastrarPessoa();
+                        switch (opcaoCadatrar) { 
+                            case 1 -> {                                                    
+                                ClienteCrud.criarCliente(configuracoesSistema.getServicoCliente());                                            }
+                            case 2 -> {                                                                                                 
+                                //Falecido
+                            }
+                        }
+                    } while (opcaoCadatrar != 3);
+                }
+            }
+        } while (opcaoPessoa != 6);
+    }
 }
