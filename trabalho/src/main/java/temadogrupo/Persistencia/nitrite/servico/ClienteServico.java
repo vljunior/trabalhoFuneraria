@@ -1,6 +1,8 @@
 package temadogrupo.persistencia.nitrite.servico;
 
 import temadogrupo.modelo.*;
+import temadogrupo.modelo.Valor.*;
+
 import temadogrupo.persistencia.nitrite.repositorio.ClienteRepositorioNitrite;
 import temadogrupo.persistencia.nitrite.repositorio.RepositorioInterface;
 
@@ -22,28 +24,30 @@ public class ClienteServico {
     public List<Cliente> listar() { 
         return repositorio.listarTodos(); 
     }    
-/*     
+     
     // Métodos com ID técnico
-    public Aluno buscarAluno(NitriteId id) { 
-        return repositorio.buscarPorId(id); 
-    }
-    */
+    /*
+    public Cliente buscarPorId(NitriteId id) {        
+        return (((ClienteRepositorioNitrite)repositorio).buscarPorCpf(null) PorId(id)); //Casting devido a não ser pra implementação
+    }*/
+
     
     public void remover(NitriteId id) { 
         //repositorio.deletarPorId(id); 
     }
 
-    /*
-    // Métodos com chave de negócio
-    public Aluno buscarPorMatricula(String matricula) { 
-        return repositorio.buscarPorMatricula(matricula);     
+    
+    // Métodos com chave de negócio, exigem casting pois não pertencem ao contrato
+    public Cliente buscarPorCpf(Cpf cpf) { 
+        return (((ClienteRepositorioNitrite)repositorio).buscarPorCpf(cpf)); //Casting devido a não ser pra implementação
     }
-        
 
-    public void removerPorMatricula(String matricula) { 
+    /*
+
+    public void removerPorCpf(Cpf cpf) { 
         repositorio.deletarPorMatricula(matricula); 
     }
-        */
+      */  
           
 
 }

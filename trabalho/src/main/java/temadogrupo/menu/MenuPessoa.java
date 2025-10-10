@@ -10,6 +10,7 @@ public class MenuPessoa {
         opcoes.add("Localizar");
         opcoes.add("Cadastrar");
         opcoes.add("Atualizar");
+        opcoes.add("Excluir");
         opcoes.add("Voltar");
         Menu menu = new Menu("CRUD Pessoa!", opcoes);
         return menu.exibir();

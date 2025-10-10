@@ -50,9 +50,10 @@ public class Cpf {
     public int hashCode() {
         return numero.hashCode();
     }
-
-    // 🔹 Algoritmo oficial de validação do CPF
+    
+    //Autoria de internet
     private boolean validarCpf(String cpf) {
+
         // elimina CPFs com todos dígitos iguais
         if (cpf.matches("(\\d)\\1{10}")) return false;
 

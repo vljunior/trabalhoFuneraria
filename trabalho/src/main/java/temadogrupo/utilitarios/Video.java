@@ -118,4 +118,11 @@ public class Video {
         System.out.println(AZUL + "[INFO] " + msg + RESET);
     }
 
+    // --- Mensagem de cofirmação --- 
+    public static boolean confirmar(String pergunta) {
+        System.out.print(pergunta + " (s/n): ");
+        String resposta = scanner.nextLine().trim().toLowerCase();
+        return resposta.equals("s") || resposta.equals("sim");
+    }
+
 }

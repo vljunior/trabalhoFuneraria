@@ -1,17 +1,14 @@
 package temadogrupo.modelo;
-
 import temadogrupo.modelo.Valor.*;
-import java.util.UUID;
 import org.dizitart.no2.NitriteId;
 import org.dizitart.no2.objects.Id;
 public abstract class Pessoa {
 
     @Id
     private NitriteId   id;    
-    
+    //
     private Cpf         cpf;
     private String      nome;      
-
     
     //Mesmo abstract é possível construtor, mas não instancia
     //Exigência do Nitrite para poder levar os atributos 

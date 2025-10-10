@@ -1,7 +1,6 @@
 package temadogrupo.modelo;
-
 import temadogrupo.modelo.Valor.*;
-import temadogrupo.utilitarios.Teclado;
+
 
 public class Cliente extends Pessoa{
     

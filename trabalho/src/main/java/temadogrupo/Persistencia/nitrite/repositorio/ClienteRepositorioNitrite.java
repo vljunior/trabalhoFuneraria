@@ -4,6 +4,7 @@ import org.dizitart.no2.Nitrite;
 import org.dizitart.no2.NitriteId;
 import org.dizitart.no2.objects.ObjectRepository;
 import temadogrupo.modelo.Cliente;
+import temadogrupo.modelo.Valor.Cpf;
 import temadogrupo.utilitarios.Video;
 
 import java.util.List;
@@ -45,23 +46,24 @@ public class ClienteRepositorioNitrite implements RepositorioInterface<Cliente> 
 
     }
 
-    /*
-    // Buscar por matrícula (chave de negócio)
-    public Pessoa buscarPorMatricula(String matricula) {
-        return repositorio.find(ObjectFilters.eq("matricula", matricula))
+    
+    // Buscar por CPF (chave de negócio)
+    public Cliente buscarPorCpf(Cpf cpf) {
+        return repositorio.find(ObjectFilters.eq("cpf", cpf.getNumero()))
                    .firstOrDefault();
     }
 
-    // Deletar por matrícula
-    public void deletarPorMatricula(String matricula) {
-        repositorio.remove(ObjectFilters.eq("matricula", matricula));
+    
+
+    // Deletar por Cpf
+    public void deletarPorCpf(Cpf cpf) {
+        repositorio.remove(ObjectFilters.eq("cpf", cpf.getNumero()));
     }
 
-    //update - dar insert com o mesmo id
-*/
+
     @Override
     public void atualizar(Cliente objeto) {
-        // Atualiza pelo campo @Id (matricula)
+        // Atualiza pelo campo @Id 
         repositorio.update(objeto, true); 
     }
     

@@ -3,11 +3,8 @@ package temadogrupo.modelo;
 import temadogrupo.persistencia.nitrite.repositorio.ClienteRepositorioNitrite;
 import temadogrupo.persistencia.nitrite.servico.ClienteServico;
 import temadogrupo.persistencia.txt.*;
-import temadogrupo.utilitarios.Video;
 import temadogrupo.persistencia.nitrite.repositorio.Database;
-
 import java.io.IOException;
-
 import org.dizitart.no2.Nitrite;
 
 

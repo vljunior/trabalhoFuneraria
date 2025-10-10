@@ -4,8 +4,10 @@ import temadogrupo.utilitarios.*;
 import temadogrupo.crud.ClienteCrud;
 import temadogrupo.menu.*;
 import temadogrupo.modelo.*;
+import temadogrupo.modelo.Valor.Cpf;
 import temadogrupo.persistencia.nitrite.repositorio.Database;
 import temadogrupo.persistencia.nitrite.repositorio.ClienteRepositorioNitrite;
+import temadogrupo.persistencia.txt.LogRepositorio;
 import java.util.List;
 
 /*Estrutura
@@ -48,16 +50,13 @@ public class App {
                                     int opcaoListar;
                                     do {
                                         opcaoListar = MenuPessoa.exibirListarPessoa();
-
                                         switch (opcaoListar) { //sem break, com uso de ->
                                             case 1 -> {                                         
-                                                listarClientes();
-                                            }   
-                                            
-                                            case 2 -> {                                                                                                     
-
+                                                ClienteCrud.listarClientes(configuracoesSistema.getServicoCliente());                                                
+                                            }                                               
+                                            case 2 -> {
                                             } 
-                                        } 
+                                        }                                         
                                     } while (opcaoListar != 3);
                                 }    
                                 
@@ -67,16 +66,15 @@ public class App {
                                         opcaoCadatrar = MenuPessoa.exibirCadastrarPessoa();
                                         switch (opcaoCadatrar) { 
                                             case 1 -> {                                                    
-                                                cadastrarCliente();
-                                            }
+                                                ClienteCrud.criarCliente(configuracoesSistema.getServicoCliente());                                            }
                                             case 2 -> {                                                                                                 
                                                 //Falecido
                                             }
                                         }
                                     } while (opcaoCadatrar != 3);
-                                }                                
+                                }
                             }
-                        } while (opcaoPessoa != 5);
+                        } while (opcaoPessoa != 6);
                     }                      
 
                     
@@ -88,9 +86,9 @@ public class App {
 
         } catch (Exception e) {
             
-            //Video.mensagemErro("Erro não previsto registrado no log: " + e.getMessage());            
-            //LogRepositorio log = new LogRepositorio();
-            //.registrarExcecao(e, configuracoesSistema.getMaximoLinhasLog());
+            Video.mensagemErro("Erro não previsto registrado no log: " + e.getMessage());            
+            LogRepositorio log = new LogRepositorio();
+            log.registrarExcecao(e, configuracoesSistema.getMaximoLinhasLog());
             
         }              
         
@@ -105,51 +103,6 @@ public class App {
         Video.mensagem("Carregando sistema...");
         //Video.barraProgresso(50, 20); 
         configuracoesSistema = ConfiguracaoSingleton.getInstancia();      
-    }
-
-    public static void listarClientes(){
-        
-        List<Cliente> clientes = configuracoesSistema.getServicoCliente().listar();                                                
-        //Guardian clause, Fail first
-        if (clientes == null) {
-            Video.mensagemAlerta("Não há clientes cadastrados");
-            Video.pausa();
-            //Early break/return                                                   
-            return;
-        }                                                
-
-        //happy path
-        Video.cabecalho("Todos os clientes cadastrados:");
-        for (Cliente cliente : clientes) {
-                System.out.println(cliente);
-        }    
-        
-        Video.pausa();                                                
-    }
-
-
-    public static void cadastrarCliente(){
-
-        Cliente novo = ClienteCrud.criarCliente();
-        Video.limparTela();
-        
-        try {
-                
-            if (novo == null) {
-                throw new Exception(); //Se não deu erro, mas voltou nulo, forço o erro
-            }
-
-            configuracoesSistema.getServicoCliente().cadastrar(novo);
-            Video.pausa();
-
-        }
-        
-        catch (Exception e) {                
-                Video.mensagemErro("Não foi possível concluir o cadastro: " + e.getMessage());
-                Video.pausa();
-                return;                    
-        }       
-        
     }    
 
 }

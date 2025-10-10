@@ -1,3 +1,11 @@
+2025-10-10 08:33:01 - java.lang.StringIndexOutOfBoundsException: begin 0, end 3, length 1
+Classe: java.lang.String, Método: checkBoundsBeginEnd, Arquivo: String.java, Linha: 4608
+Classe: java.lang.String, Método: substring, Arquivo: String.java, Linha: 2711
+Classe: temadogrupo.modelo.Valor.Cpf, Método: getFormatado, Arquivo: Cpf.java, Linha: 30
+Classe: temadogrupo.modelo.Valor.Cpf, Método: toString, Arquivo: Cpf.java, Linha: 38
+Classe: java.lang.String, Método: valueOf, Arquivo: String.java, Linha: 4222
+Classe: temadogrupo.crud.ClienteCrud, Método: criarCliente, Arquivo: ClienteCrud.java, Linha: 25
+Classe: temadogrupo.App, Método: main, Arquivo: App.java, Linha: 69
 2025-10-08 21:25:26 - java.lang.NullPointerException: Cannot invoke "java.util.List.equals(Object)" because "clientes" is null
 Classe: temadogrupo.App, MÃ©todo: main, Arquivo: App.java, Linha: 67
 2025-10-08 21:23:03 - java.lang.NullPointerException: Cannot invoke "java.util.List.equals(Object)" because "clientes" is null
