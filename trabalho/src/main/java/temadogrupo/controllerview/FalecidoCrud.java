@@ -1,5 +1,6 @@
 package temadogrupo.controllerview;
 
+import java.time.LocalDate;
 import java.util.List;
 import temadogrupo.modelo.Falecido;
 import temadogrupo.utilitarios.*;
@@ -13,27 +14,28 @@ public class FalecidoCrud {
         Video.cabecalho ("Cadastrar falecido!");        
         Video.mensagem("Informe os dados!");              
 
-        String nome      = Teclado.readString("Nome:");
-        String documento = Teclado.readString("Número de documento de identificação:");        
-        String tipoDoc   = Teclado.readString("Tipo de documento:");
+        String nome         = Teclado.readString("Nome:");
+        int idade           = Teclado.readInt("Idade:");
+        String documento    = Teclado.readString("Número de documento de identificação:");        
+        String tipoDoc      = Teclado.readString("Tipo de documento:");
+        LocalDate dataObito = Teclado.readDate("Digite a data de óbito");
+        String causaMorte   = Teclado.readString("Causa morte:");
+        String localObito   = Teclado.readString("Local do óbito:");
+        String certidao     = Teclado.readString("Certidão:");
         
         //Demais dados conforme classe
 
         Falecido novo;        
 
-        try {        
-
-            /*
-            (String nome, LocalDate dataObito,  String causaMorte,
-                    String localObito, int idade, String certidaoObito,
-                    String numeroDocumento, String tipoDocumento)*/
-
-            novo = new Falecido ();
+        try {                    
+            novo = new Falecido (nome, dataObito, causaMorte, localObito, idade, 
+                                    certidao, documento, tipoDoc);
             if (novo == null) {
                 throw new Exception(); //Se não deu erro, mas voltou nulo, forço o erro
             }
             servico.cadastrar(novo);
             Video.pausa();
+
         } catch (Exception e) {                
                 Video.mensagemErro("Não foi possível concluir o cadastro: " + e.getMessage());
                 Video.pausa();

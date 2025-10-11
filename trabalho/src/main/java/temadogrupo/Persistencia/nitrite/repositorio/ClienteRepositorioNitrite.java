@@ -11,7 +11,7 @@ import temadogrupo.utilitarios.Video;
 
 import java.util.List;
 
-public class RepositorioClienteNitrite implements RepositorioInterface<Cliente> {
+public class ClienteRepositorioNitrite implements RepositorioInterface<Cliente> {
     private final Nitrite bancoDeDadosNitrite;
     private final ObjectRepository<Cliente> repositorio;
 

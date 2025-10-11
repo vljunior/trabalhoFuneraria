@@ -72,6 +72,7 @@ public class ClienteCrud {
 
     public static void deletarClientePorCpf(ClienteServico servico){
 
+        /*
         Cpf cpf;
 
         Video.limparTela();                 
@@ -87,7 +88,7 @@ public class ClienteCrud {
                 Video.mensagemErro("Não foi possível localizar o cadastro: " + e.getMessage());
                 Video.pausa();
                 return;                    
-        }      
+        }    */  
         
     } 
 

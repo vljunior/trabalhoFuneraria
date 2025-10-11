@@ -1,3 +1,13 @@
+2025-10-11 13:19:53 - java.lang.RuntimeException: Erro ao instanciar serviço: ClienteServico
+Classe: temadogrupo.modelo.ConfiguracaoSingleton, Método: criarServico, Arquivo: ConfiguracaoSingleton.java, Linha: 127
+Classe: temadogrupo.modelo.ConfiguracaoSingleton, Método: getServicoCliente, Arquivo: ConfiguracaoSingleton.java, Linha: 133
+Classe: temadogrupo.App, Método: tratarMenuPessoa, Arquivo: App.java, Linha: 87
+Classe: temadogrupo.App, Método: main, Arquivo: App.java, Linha: 46
+2025-10-11 13:14:20 - java.lang.RuntimeException: Erro ao instanciar serviço: ClienteServico
+Classe: temadogrupo.modelo.ConfiguracaoSingleton, Método: criarServico, Arquivo: ConfiguracaoSingleton.java, Linha: 127
+Classe: temadogrupo.modelo.ConfiguracaoSingleton, Método: getServicoCliente, Arquivo: ConfiguracaoSingleton.java, Linha: 133
+Classe: temadogrupo.App, Método: tratarMenuPessoa, Arquivo: App.java, Linha: 87
+Classe: temadogrupo.App, Método: main, Arquivo: App.java, Linha: 46
 2025-10-10 08:33:01 - java.lang.StringIndexOutOfBoundsException: begin 0, end 3, length 1
 Classe: java.lang.String, Método: checkBoundsBeginEnd, Arquivo: String.java, Linha: 4608
 Classe: java.lang.String, Método: substring, Arquivo: String.java, Linha: 2711

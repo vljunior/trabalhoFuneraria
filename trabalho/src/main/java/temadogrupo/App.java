@@ -6,6 +6,8 @@ import temadogrupo.menu.*;
 import temadogrupo.modelo.*;
 import temadogrupo.modelo.Valor.Cpf;
 import temadogrupo.persistencia.nitrite.repositorio.Database;
+import temadogrupo.persistencia.nitrite.servico.ClienteServico;
+import temadogrupo.persistencia.nitrite.servico.FalecidoServico;
 import temadogrupo.persistencia.nitrite.repositorio.*;
 import temadogrupo.persistencia.txt.LogRepositorio;
 import java.util.List;
@@ -84,7 +86,7 @@ public class App {
                         opcaoListar = MenuPessoa.exibirListarPessoa();
                         switch (opcaoListar) { 
                             case 1 -> {                                         
-                                ClienteCrud.listarClientes(configuracoesSistema.getServicoCliente());                                                
+                                ClienteCrud.listarClientes(configuracoesSistema.getServico(ClienteServico.class));                                                
                             }                                               
                             case 2 -> {
                             } 
@@ -98,10 +100,10 @@ public class App {
                         opcaoCadatrar = MenuPessoa.exibirCadastrarPessoa();
                         switch (opcaoCadatrar) { 
                             case 1 -> {                                                    
-                                ClienteCrud.criarCliente(configuracoesSistema.getServicoCliente());   
+                                ClienteCrud.criarCliente(configuracoesSistema.getServico(ClienteServico.class)); //passando a classe  
                             }                                         
                             case 2 -> {                                                                                                 
-                                FalecidoCrud.criarFalecido(configuracoesSistema.getServicoFalecido());                                            
+                                FalecidoCrud.criarFalecido(configuracoesSistema.getServico(FalecidoServico.class));                                            
                             }
                         }
                     } while (opcaoCadatrar != 3);
