@@ -95,66 +95,7 @@ public class ConfiguracaoSingleton implements SerializableTXT {
             e.printStackTrace();
         }
     }
-
-    /*
-    public static ClienteServico getServicoCliente() {
-       
-
-        if (servicoCliente == null) {            
-            servicoCliente = new ClienteServico(new ClienteRepositorioNitrite(Database.getDb()));            
-        }
-        
-        return servicoCliente;
-    }   
-
-    public static FalecidoServico getServicoFalecido() {       
-
-        if (servicoFalecido == null) {            
-            servicoFalecido = new FalecidoServico(new FalecidoRepositorioNitrite(Database.getDb()));            
-        }
-        
-        return servicoFalecido;
-    }
-
-    */
-
-    //usando Generics + Reflection
-    /*
-    private static <S, R> S criarServico(Class<S> tipoServico, R repositorio) {
-        try {
-            return tipoServico
-                    .getConstructor(repositorio.getClass()) // encontra o construtor que recebe o repositório
-                    .newInstance(repositorio);
-        } catch (Exception e) {
-            throw new RuntimeException("Erro ao instanciar serviço: " + tipoServico.getSimpleName(), e);
-        }
-    }
-        */
-
-    /*
-    public static ClienteServico getServicoCliente() {
-        if (servicoCliente == null) {
-            servicoCliente = criarServico(
-                ClienteServico.class,
-                new RepositorioClienteNitrite(Database.getDb())
-            );
-        }
-        return servicoCliente;
-    }
-
-    public static FalecidoServico getServicoFalecido() {
-        if (servicoFalecido == null) {
-            servicoFalecido = criarServico(
-                FalecidoServico.class,
-                new FalecidoRepositorioNitrite(Database.getDb())
-            );
-        }
-        return servicoFalecido;
-    } */
-
-    //De dois pra um, jogar isso pra um abstract facotory
-         
-
+    
     //optei por Abstract Factory
 
     public static <S extends ServicoAbstract> S getServico(Class<S> tipoServico) {
