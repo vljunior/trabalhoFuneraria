@@ -17,7 +17,7 @@ public class ConfiguracaoSingleton implements SerializableTXT {
     private static Nitrite bancoDeDadosNitrite;    
     public static ClienteServico servicoCliente;
 
-    private String opcao = "Algo"; //um atributo de configuração pra seguir de exemplo para os demais que surgirem
+    private String nomeFuneraria = "Funerária"; 
     private int maximoLinhasLog = 100;
 
     public int getMaximoLinhasLog() {
@@ -44,18 +44,18 @@ public class ConfiguracaoSingleton implements SerializableTXT {
         return instancia;
     }
 
-    public String getOpcao() { 
-        return opcao; 
+    public String getNomeFuneraria() { 
+        return nomeFuneraria; 
     }
     
-    public void setOpcao(String opcao) { 
-        this.opcao = opcao; 
+    public void setNomeFuneraria(String nome) { 
+        this.nomeFuneraria = nome; 
     }
 
     // Serialização
     @Override
     public String toSerializableTxt() {
-        return getOpcao() + ";" +
+        return getNomeFuneraria() + ";" +
                getMaximoLinhasLog() + ";";
     }
 
@@ -63,7 +63,7 @@ public class ConfiguracaoSingleton implements SerializableTXT {
     public void fromSerializableTxt(String linha) {      
         
         String[] partes = linha.split(";");
-        setOpcao(partes[0]);
+        setNomeFuneraria(partes[0]);
         setMaximoLinhasLog(Integer.parseInt(partes[1]));
         //int idade = Integer.parseInt(partes[1]);        
         
@@ -76,7 +76,7 @@ public class ConfiguracaoSingleton implements SerializableTXT {
             new ArquivoTxtConfiguracoes("config.txt").carregar(this);    
             
         } catch (IOException e) {
-            setOpcao("padrao");
+            setNomeFuneraria("Sem Nome");
             setMaximoLinhasLog(100);
         }
 

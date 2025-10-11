@@ -14,6 +14,9 @@ import java.util.List;
 
 temadogrupo/
  ├─ modelo/                                 Entidades do domínio (Pessoa, Cliente, Falecido, TipoPessoa) 
+ ├─                                         Video e Teclado
+ ├─ controllerview                          Sem ser MVC, mas juntando view e controller no crud
+ ├─ excecoes                                Se criar minhas exceções 
  ├─ persistencia/
  ├──────────────/txt/                       Em geral generics pra persistência em TXT
  ├──────────────/nitrite/
@@ -29,15 +32,14 @@ public class App {
     private static ConfiguracaoSingleton configuracoesSistema;
 
     public static void main(String[] args) {
-
-        Database.fecharDb(); //forçando caso sair do sistema de forma anormal.
+        
         iniciar();
         try {
             
             int opcaoPrincipal;
 
             do {
-                opcaoPrincipal = MenuPrincipal.exibir();
+                opcaoPrincipal = MenuPrincipal.exibir(configuracoesSistema.getNomeFuneraria());
 
                 switch (opcaoPrincipal) {
                     case 1 -> {
@@ -59,7 +61,7 @@ public class App {
         }              
         
         finally {
-            // ao finalizar o sistema, salva as configurações             
+            // ao finalizar o sistema, fehca o banco e salva as configurações             
             configuracoesSistema.fecharDatabase();
             configuracoesSistema.salvarConfiguracoes();
         }
@@ -75,12 +77,12 @@ public class App {
         int opcaoPessoa;
         do {
             opcaoPessoa = MenuPessoa.exibir();
-            switch (opcaoPessoa) { //sem break, com uso de ->
+            switch (opcaoPessoa) { 
                 case 1 -> {
                     int opcaoListar;
                     do {
                         opcaoListar = MenuPessoa.exibirListarPessoa();
-                        switch (opcaoListar) { //sem break, com uso de ->
+                        switch (opcaoListar) { 
                             case 1 -> {                                         
                                 ClienteCrud.listarClientes(configuracoesSistema.getServicoCliente());                                                
                             }                                               
