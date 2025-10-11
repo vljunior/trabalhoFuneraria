@@ -1,7 +1,7 @@
 package temadogrupo.modelo;
 
-import temadogrupo.persistencia.nitrite.repositorio.ClienteRepositorioNitrite;
-import temadogrupo.persistencia.nitrite.servico.ClienteServico;
+import temadogrupo.persistencia.nitrite.repositorio.*;
+import temadogrupo.persistencia.nitrite.servico.*;
 import temadogrupo.persistencia.txt.*;
 import temadogrupo.persistencia.nitrite.repositorio.Database;
 import java.io.IOException;
@@ -16,6 +16,8 @@ public class ConfiguracaoSingleton implements SerializableTXT {
     private static ConfiguracaoSingleton instancia;
     private static Nitrite bancoDeDadosNitrite;    
     public static ClienteServico servicoCliente;
+    public static FalecidoServico servicoFalecido;
+
 
     private String nomeFuneraria = "Funerária"; 
     private int maximoLinhasLog = 100;
@@ -99,6 +101,15 @@ public class ConfiguracaoSingleton implements SerializableTXT {
         
         return servicoCliente;
     }   
+
+    public static FalecidoServico getServicoFalecido() {       
+
+        if (servicoFalecido == null) {            
+            servicoFalecido = new FalecidoServico(new FalecidoRepositorioNitrite(Database.getDb()));            
+        }
+        
+        return servicoFalecido;
+    }
 
 }
 

@@ -7,7 +7,7 @@ import temadogrupo.persistencia.nitrite.servico.FalecidoServico;
 
 public class FalecidoCrud {
   
-    public static Falecido criarCliente(FalecidoServico servico) {
+    public static Falecido criarFalecido(FalecidoServico servico) {
 
         Video.limparTela();
         Video.cabecalho ("Cadastrar falecido!");        
@@ -22,6 +22,12 @@ public class FalecidoCrud {
         Falecido novo;        
 
         try {        
+
+            /*
+            (String nome, LocalDate dataObito,  String causaMorte,
+                    String localObito, int idade, String certidaoObito,
+                    String numeroDocumento, String tipoDocumento)*/
+
             novo = new Falecido ();
             if (novo == null) {
                 throw new Exception(); //Se não deu erro, mas voltou nulo, forço o erro

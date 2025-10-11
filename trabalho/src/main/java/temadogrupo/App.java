@@ -1,12 +1,12 @@
 package temadogrupo;
 
 import temadogrupo.utilitarios.*;
-import temadogrupo.controllerview.ClienteCrud;
+import temadogrupo.controllerview.*;
 import temadogrupo.menu.*;
 import temadogrupo.modelo.*;
 import temadogrupo.modelo.Valor.Cpf;
 import temadogrupo.persistencia.nitrite.repositorio.Database;
-import temadogrupo.persistencia.nitrite.repositorio.ClienteRepositorioNitrite;
+import temadogrupo.persistencia.nitrite.repositorio.*;
 import temadogrupo.persistencia.txt.LogRepositorio;
 import java.util.List;
 
@@ -98,9 +98,10 @@ public class App {
                         opcaoCadatrar = MenuPessoa.exibirCadastrarPessoa();
                         switch (opcaoCadatrar) { 
                             case 1 -> {                                                    
-                                ClienteCrud.criarCliente(configuracoesSistema.getServicoCliente());                                            }
+                                ClienteCrud.criarCliente(configuracoesSistema.getServicoCliente());   
+                            }                                         
                             case 2 -> {                                                                                                 
-                                //Falecido
+                                FalecidoCrud.criarFalecido(configuracoesSistema.getServicoFalecido());                                            
                             }
                         }
                     } while (opcaoCadatrar != 3);
